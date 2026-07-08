@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sridhar Reddy Guda | Python Backend Engineer Portfolio</title>
+  <!-- Meta description for SEO -->
+  <meta name="description" content="Portfolio of Sridhar Reddy Guda - Python Backend Engineer specializing in Django, REST APIs, Celery, Redis, and AI-enabled SaaS platforms.">
+  <meta name="keywords" content="Sridhar Reddy Guda, Python, Django, Developer, Software Engineer, Backend Engineer, Django REST Framework, Celery, Redis, Azure, AI Integration">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER / NAVIGATION
+       ========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="nav-logo">
+        <i class="fa-solid fa-terminal"></i> Sridhar Reddy
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-tag">
+          <i class="fa-solid fa-code"></i> Python Backend Developer
+        </span>
+        <h1>Hi, I'm <span class="hero-name">Sridhar Reddy Guda</span></h1>
+        
+        <!-- Interactive typing effect -->
+        <div class="hero-subtitle">
+          <span id="typed-text"></span>
+        </div>
+        
+        <p class="hero-desc">
+          I build scalable, secure, and production-ready backend systems. Specializing in Django, DRF, PostgreSQL, Celery, Redis, Docker, and AI-enabled SaaS applications.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Explore Work <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get In Touch
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="mailto:gudasridharreddy2002@gmail.com" class="social-link" title="Email" target="_blank">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://linkedin.com/in/sridhar-reddy-guda-161a7b223" class="social-link" title="LinkedIn" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/sridhar8910" class="social-link" title="GitHub" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Visual Graphic Dashboard Mockups -->
+      <div class="hero-art">
+        <div class="art-container">
+          <div class="glow-orb"></div>
+          <div class="card-stack">
+            <!-- Card 1: Django Code snippet -->
+            <div class="dashboard-card card-1">
+              <div class="code-header">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+              </div>
+              <div class="code-content">
+                <span class="keyword">class</span> <span class="def">SecureAPI</span>(APIView):<br>
+                &nbsp;&nbsp;<span class="keyword">permission_classes</span> = [IsAuthenticated]<br><br>
+                &nbsp;&nbsp;<span class="keyword">def</span> <span class="def">post</span>(self, request):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;task = parse_resume.delay(request.data)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> Response({"status": <span class="string">"queued"</span>})
+              </div>
+            </div>
+            
+            <!-- Card 2: Interactive metrics -->
+            <div class="dashboard-card card-2">
+              <div class="code-header">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+              </div>
+              <h4 style="font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">System Capabilities</h4>
+              <div class="tech-badges-grid">
+                <div class="mini-badge"><i class="fa-solid fa-shield-halved" style="color: var(--accent-primary)"></i> RBAC</div>
+                <div class="mini-badge"><i class="fa-solid fa-bolt" style="color: var(--accent-secondary)"></i> Celery</div>
+                <div class="mini-badge"><i class="fa-solid fa-database" style="color: #316192"></i> DB Opt</div>
+                <div class="mini-badge"><i class="fa-solid fa-cubes" style="color: #2496ED"></i> Docker</div>
+                <div class="mini-badge"><i class="fa-solid fa-brain" style="color: #ef4444"></i> GenAI</div>
+                <div class="mini-badge"><i class="fa-solid fa-cloud" style="color: #0078D4"></i> Azure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       RECRUITER SNAPSHOT (KPIs)
+       ========================================== -->
+  <section class="section" style="padding: 3rem 0;">
+    <div class="container">
+      <div class="snapshot-grid">
+        <div class="glass-card snapshot-card">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Experience</h3>
+          <p>2+ Years building startup SaaS products and backend infrastructures.</p>
+        </div>
+        <div class="glass-card snapshot-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>API Security</h3>
+          <p>Proficient in JWT authentication, role-based access control (RBAC), and security boundaries.</p>
+        </div>
+        <div class="glass-card snapshot-card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Async Workloads</h3>
+          <p>Deep expertise in Celery and Redis to handle asynchronous background processing.</p>
+        </div>
+        <div class="glass-card snapshot-card">
+          <i class="fa-solid fa-brain"></i>
+          <h3>AI Integrations</h3>
+          <p>Experience embedding LLM API workflows, NLP parsers, and ATS matching algorithms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SKILLS MATRIX SECTION
+       ========================================== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical Core</h2>
+        <p>My tech stack is optimized for speed, reliability, and security in production environments.</p>
+      </div>
+      
+      <!-- Interactive tab controls -->
+      <div class="skills-tabs">
+        <button class="tab-btn active" data-tab="backend">
+          <i class="fa-solid fa-server"></i> Backend & APIs
+        </button>
+        <button class="tab-btn" data-tab="databases">
+          <i class="fa-solid fa-database"></i> Databases & Async
+        </button>
+        <button class="tab-btn" data-tab="devops">
+          <i class="fa-solid fa-cloud-arrow-up"></i> DevOps & Cloud
+        </button>
+        <button class="tab-btn" data-tab="ai-frontend">
+          <i class="fa-solid fa-brain"></i> AI & Frontend Support
+        </button>
+      </div>
+      
+      <!-- Tab Contents -->
+      <!-- 1. Backend & APIs -->
+      <div class="skills-content active" id="backend">
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div>
+          <h4>Python</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-cubes"></i></div>
+          <h4>Django</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-gears"></i></div>
+          <h4>Django REST (DRF)</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+          <h4>REST API Design</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-key"></i></div>
+          <h4>JWT Authentication</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-user-lock"></i></div>
+          <h4>RBAC</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+      </div>
+      
+      <!-- 2. Databases & Async -->
+      <div class="skills-content" id="databases">
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-leaf"></i></div>
+          <h4>PostgreSQL</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div>
+          <h4>MySQL</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-gauge-high"></i></div>
+          <h4>Redis</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+          <h4>Celery Workers</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h4>SQL Optimization</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+      </div>
+      
+      <!-- 3. DevOps & Cloud -->
+      <div class="skills-content" id="devops">
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-brands fa-docker"></i></div>
+          <h4>Docker</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-cloud"></i></div>
+          <h4>Azure VMs</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-brands fa-linux"></i></div>
+          <h4>Linux Systems</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-brands fa-git-alt"></i></div>
+          <h4>Git & GitHub</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-square-rss"></i></div>
+          <h4>Azure DevOps</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+      </div>
+      
+      <!-- 4. AI & Frontend Support -->
+      <div class="skills-content" id="ai-frontend">
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-robot"></i></div>
+          <h4>LLM Integration</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-language"></i></div>
+          <h4>NLP & Parsers</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-calculator"></i></div>
+          <h4>ATS Scoring</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-brands fa-react"></i></div>
+          <h4>React.js</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+        <div class="glass-card skill-item">
+          <div class="skill-icon-wrap"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h4>Flutter Support</h4>
+          <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EXPERIENCE TIMELINE SECTION
+       ========================================== -->
+  <section class="section" id="experience" style="background: var(--bg-secondary); transition: background-color 0.4s ease;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Production Deliverables</h2>
+        <p>A look at the enterprise systems and platforms I have engineered and deployed.</p>
+      </div>
+      
+      <div class="timeline">
+        <!-- NeevPath -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-title">
+                <h3>NeevPath - AI-Powered School ERP</h3>
+                <div class="company"><i class="fa-solid fa-building"></i> Product Backend Development</div>
+              </div>
+              <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Core Platform</span>
+            </div>
+            
+            <div class="timeline-tech-tags">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">DRF</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Azure VM</span>
+              <span class="tech-tag">GenAI Learning Assistant</span>
+            </div>
+            
+            <div class="timeline-details">
+              <ul>
+                <li>Developed core APIs for administrative workflows connecting students, parents, teachers, and transport management.</li>
+                <li>Implemented secure JWT authentication and role-based access controls (RBAC) across distinct portal nodes.</li>
+                <li>Built Celery and Redis automated background systems for scheduled fee collections and messaging.</li>
+                <li>Engineered AI features providing mock test generations, student weak-topic detection, and revision workflows.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- VerifiHireAI -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-title">
+                <h3>VerifiHireAI - AI Recruitment Platform</h3>
+                <div class="company"><i class="fa-solid fa-building"></i> Product Backend Development</div>
+              </div>
+              <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Screening Core</span>
+            </div>
+            
+            <div class="timeline-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">LLM Parsing</span>
+              <span class="tech-tag">Celery Workers</span>
+              <span class="tech-tag">ATS Matching</span>
+              <span class="tech-tag">React Coordination</span>
+            </div>
+            
+            <div class="timeline-details">
+              <ul>
+                <li>Engineered recruiter dashboards, assessment generators, and structured candidate evaluation pipelines.</li>
+                <li>Built async background resume screening engines leveraging Celery to process high volumes of uploads.</li>
+                <li>Implemented ATS matching score metrics using LLM APIs to extract metadata and rank candidate fits.</li>
+                <li>Designed schema models mapping recruiter preferences, assessments, and interview outputs.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SoulSupport -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-title">
+                <h3>SoulSupport - Emotional Wellbeing Platform</h3>
+                <div class="company"><i class="fa-solid fa-building"></i> Support System Backend</div>
+              </div>
+              <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Secure Messaging</span>
+            </div>
+            
+            <div class="timeline-tech-tags">
+              <span class="tech-tag">Django REST</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">Flutter Integration</span>
+              <span class="tech-tag">Celery Notifications</span>
+              <span class="tech-tag">SQL Tuning</span>
+            </div>
+            
+            <div class="timeline-details">
+              <ul>
+                <li>Created a secure support portal connecting members and users with strict identity boundaries.</li>
+                <li>Structured request processing systems with moderation rules and admin diagnostic dashboards.</li>
+                <li>Optimized PostgreSQL queries for secure chats, history, and analytical reporting metrics.</li>
+                <li>Managed API routing, Flutter cross-platform synchronization, and Azure VM hosting deployment.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PUBLIC REPOSITORIES SECTION
+       ========================================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>GitHub Repositories</h2>
+        <p>Explore source code for backend projects, helper libraries, and research work.</p>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Soul-Support -->
+        <div class="glass-card project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/sridhar8910/Soul-Support" class="project-link-btn" target="_blank" title="View Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3>Soul-Support</h3>
+            <p>Production codebase for the emotional wellbeing system. Features JWT tokens, secure member assignments, chat structures, and Flutter endpoint synchronizations.</p>
+          </div>
+          <div class="project-footer">
+            <span class="project-lang python"><span class="lang-dot"></span> Python / Flutter</span>
+          </div>
+        </div>
+        
+        <!-- project -->
+        <div class="glass-card project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/sridhar8910/project" class="project-link-btn" target="_blank" title="View Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3>project</h3>
+            <p>Work-in-progress workspace containing custom Django settings, API experiments, routing rules, and experimental Celery-Redis tasks.</p>
+          </div>
+          <div class="project-footer">
+            <span class="project-lang python"><span class="lang-dot"></span> Python</span>
+          </div>
+        </div>
+        
+        <!-- mineprojects -->
+        <div class="glass-card project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-folder-open"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/sridhar8910/mineprojects" class="project-link-btn" target="_blank" title="View Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3>mineprojects</h3>
+            <p>A repository collecting individual projects, SQL optimization scripts, database mock schemas, and containerization utilities.</p>
+          </div>
+          <div class="project-footer">
+            <span class="project-lang python"><span class="lang-dot"></span> Python / SQL</span>
+          </div>
+        </div>
+        
+        <!-- codes -->
+        <div class="glass-card project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-code-compare"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/sridhar8910/codes" class="project-link-btn" target="_blank" title="View Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3>codes</h3>
+            <p>A library of programming algorithms, database patterns, data structure practices, and HackerRank solutions in Python and SQL.</p>
+          </div>
+          <div class="project-footer">
+            <span class="project-lang python"><span class="lang-dot"></span> Python / SQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACT SECTION
+       ========================================== -->
+  <section class="section" id="contact" style="background: var(--bg-secondary); transition: background-color 0.4s ease;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Initiate Contact</h2>
+        <p>I am open to Python Backend Engineer, Django Developer, and general Software Engineering roles.</p>
+      </div>
+      
+      <div class="contact-container">
+        <!-- Contact details -->
+        <div class="contact-info">
+          <div class="glass-card contact-method">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-text">
+              <h4>Direct Email</h4>
+              <p><a href="mailto:gudasridharreddy2002@gmail.com">gudasridharreddy2002@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="glass-card contact-method">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-text">
+              <h4>LinkedIn Profile</h4>
+              <p><a href="https://linkedin.com/in/sridhar-reddy-guda-161a7b223" target="_blank">sridhar-reddy-guda-161a7b223</a></p>
+            </div>
+          </div>
+          
+          <div class="glass-card contact-method">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-text">
+              <h4>Work Location</h4>
+              <p>Remote / Open to Relocation</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <form class="glass-card contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary form-submit-btn">
+            Send Message <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          
+          <div class="submit-success-msg" id="success-msg">
+            <i class="fa-solid fa-circle-check"></i> Thank you! Your message was submitted successfully.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <i class="fa-solid fa-terminal"></i> Sridhar Reddy
+      </div>
+      <p class="footer-text">&copy; 2026 Sridhar Reddy Guda. All rights reserved.</p>
+      <div class="footer-signature">
+        Built with <i class="fa-solid fa-heart"></i> for Backend Engineering excellence.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

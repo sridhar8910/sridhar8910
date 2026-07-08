@@ -14,7 +14,7 @@
   <a href="mailto:gudasridharreddy2002@gmail.com">
     <img src="https://img.shields.io/badge/Email-gudasridharreddy2002%40gmail.com-ef4444?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
-  <a href="http://linkedin.com/in/sridhar-reddy-guda-161a7b223">
+  <a href="https://linkedin.com/in/sridhar-reddy-guda-161a7b223">
     <img src="https://img.shields.io/badge/LinkedIn-Sridhar%20Reddy%20Guda-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <a href="https://github.com/sridhar8910?tab=followers">
@@ -221,7 +221,7 @@ I use GitHub Copilot, Cursor AI, ChatGPT, Claude AI, and Gemini AI to speed up A
   <b>Open to Python Backend Engineer, Django Developer, GenAI Backend Engineer, and Software Engineer roles.</b>
   <br />
   <a href="mailto:gudasridharreddy2002@gmail.com">gudasridharreddy2002@gmail.com</a> |
-  <a href="http://linkedin.com/in/sridhar-reddy-guda-161a7b223">LinkedIn</a> |
+  <a href="https://linkedin.com/in/sridhar-reddy-guda-161a7b223">LinkedIn</a> |
   <a href="https://github.com/sridhar8910">GitHub</a>
 </p>
 
