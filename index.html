@@ -16,6 +16,10 @@
 </head>
 <body>
 
+  <!-- Dynamic Canvas Background & Cursor Tracker -->
+  <canvas id="particle-canvas"></canvas>
+  <div id="cursor-glow"></div>
+
   <!-- ==========================================
        HEADER / NAVIGATION
        ========================================== -->
@@ -58,7 +62,7 @@
         
         <!-- Interactive typing effect -->
         <div class="hero-subtitle">
-          <span id="typed-text"></span>
+          <span id="typed-text"></span><span class="typed-cursor">|</span>
         </div>
         
         <p class="hero-desc">
@@ -117,8 +121,8 @@
               </div>
               <h4 style="font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">System Capabilities</h4>
               <div class="tech-badges-grid">
-                <div class="mini-badge"><i class="fa-solid fa-shield-halved" style="color: var(--accent-primary)"></i> RBAC</div>
-                <div class="mini-badge"><i class="fa-solid fa-bolt" style="color: var(--accent-secondary)"></i> Celery</div>
+                <div class="mini-badge"><i class="fa-solid fa-shield-halved" style="color: var(--color-primary)"></i> RBAC</div>
+                <div class="mini-badge"><i class="fa-solid fa-bolt" style="color: var(--color-secondary)"></i> Celery</div>
                 <div class="mini-badge"><i class="fa-solid fa-database" style="color: #316192"></i> DB Opt</div>
                 <div class="mini-badge"><i class="fa-solid fa-cubes" style="color: #2496ED"></i> Docker</div>
                 <div class="mini-badge"><i class="fa-solid fa-brain" style="color: #ef4444"></i> GenAI</div>
@@ -134,25 +138,25 @@
   <!-- ==========================================
        RECRUITER SNAPSHOT (KPIs)
        ========================================== -->
-  <section class="section" style="padding: 3rem 0;">
+  <section class="section reveal" style="padding: 3rem 0;">
     <div class="container">
       <div class="snapshot-grid">
-        <div class="glass-card snapshot-card">
+        <div class="cyber-card snapshot-card">
           <i class="fa-solid fa-briefcase"></i>
           <h3>Experience</h3>
           <p>2+ Years building startup SaaS products and backend infrastructures.</p>
         </div>
-        <div class="glass-card snapshot-card">
+        <div class="cyber-card snapshot-card">
           <i class="fa-solid fa-shield-halved"></i>
           <h3>API Security</h3>
           <p>Proficient in JWT authentication, role-based access control (RBAC), and security boundaries.</p>
         </div>
-        <div class="glass-card snapshot-card">
+        <div class="cyber-card snapshot-card">
           <i class="fa-solid fa-bolt"></i>
           <h3>Async Workloads</h3>
           <p>Deep expertise in Celery and Redis to handle asynchronous background processing.</p>
         </div>
-        <div class="glass-card snapshot-card">
+        <div class="cyber-card snapshot-card">
           <i class="fa-solid fa-brain"></i>
           <h3>AI Integrations</h3>
           <p>Experience embedding LLM API workflows, NLP parsers, and ATS matching algorithms.</p>
@@ -164,7 +168,7 @@
   <!-- ==========================================
        SKILLS MATRIX SECTION
        ========================================== -->
-  <section class="section" id="skills">
+  <section class="section reveal" id="skills">
     <div class="container">
       <div class="section-header">
         <h2>Technical Core</h2>
@@ -190,32 +194,32 @@
       <!-- Tab Contents -->
       <!-- 1. Backend & APIs -->
       <div class="skills-content active" id="backend">
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div>
           <h4>Python</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-cubes"></i></div>
           <h4>Django</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-gears"></i></div>
           <h4>Django REST (DRF)</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
           <h4>REST API Design</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-key"></i></div>
           <h4>JWT Authentication</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-user-lock"></i></div>
           <h4>RBAC</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
@@ -224,27 +228,27 @@
       
       <!-- 2. Databases & Async -->
       <div class="skills-content" id="databases">
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-leaf"></i></div>
           <h4>PostgreSQL</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div>
           <h4>MySQL</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-gauge-high"></i></div>
           <h4>Redis</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-clock"></i></div>
           <h4>Celery Workers</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
           <h4>SQL Optimization</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
@@ -253,27 +257,27 @@
       
       <!-- 3. DevOps & Cloud -->
       <div class="skills-content" id="devops">
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-brands fa-docker"></i></div>
           <h4>Docker</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-cloud"></i></div>
           <h4>Azure VMs</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-brands fa-linux"></i></div>
           <h4>Linux Systems</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-brands fa-git-alt"></i></div>
           <h4>Git & GitHub</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Advanced</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-square-rss"></i></div>
           <h4>Azure DevOps</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
@@ -282,27 +286,27 @@
       
       <!-- 4. AI & Frontend Support -->
       <div class="skills-content" id="ai-frontend">
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-robot"></i></div>
           <h4>LLM Integration</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-language"></i></div>
           <h4>NLP & Parsers</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-calculator"></i></div>
           <h4>ATS Scoring</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-brands fa-react"></i></div>
           <h4>React.js</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
         </div>
-        <div class="glass-card skill-item">
+        <div class="cyber-card skill-item">
           <div class="skill-icon-wrap"><i class="fa-solid fa-mobile-screen"></i></div>
           <h4>Flutter Support</h4>
           <span class="skill-level"><i class="fa-solid fa-circle-check"></i> Intermediate</span>
@@ -314,18 +318,18 @@
   <!-- ==========================================
        EXPERIENCE TIMELINE SECTION
        ========================================== -->
-  <section class="section" id="experience" style="background: var(--bg-secondary); transition: background-color 0.4s ease;">
+  <section class="section reveal" id="experience">
     <div class="container">
       <div class="section-header">
         <h2>Production Deliverables</h2>
-        <p>A look at the enterprise systems and platforms I have engineered and deployed.</p>
+        <p>Click on any project to reveal build details, achievements, and production outcomes.</p>
       </div>
       
       <div class="timeline">
         <!-- NeevPath -->
         <div class="timeline-item">
           <div class="timeline-marker"></div>
-          <div class="glass-card timeline-content">
+          <div class="cyber-card timeline-content">
             <div class="timeline-header">
               <div class="timeline-title">
                 <h3>NeevPath - AI-Powered School ERP</h3>
@@ -342,7 +346,6 @@
               <span class="tech-tag">Redis</span>
               <span class="tech-tag">Docker</span>
               <span class="tech-tag">Azure VM</span>
-              <span class="tech-tag">GenAI Learning Assistant</span>
             </div>
             
             <div class="timeline-details">
@@ -353,13 +356,16 @@
                 <li>Engineered AI features providing mock test generations, student weak-topic detection, and revision workflows.</li>
               </ul>
             </div>
+            <div class="timeline-expand-btn">
+              <span>View Project Details</span> <i class="fa-solid fa-chevron-down"></i>
+            </div>
           </div>
         </div>
         
         <!-- VerifiHireAI -->
         <div class="timeline-item">
           <div class="timeline-marker"></div>
-          <div class="glass-card timeline-content">
+          <div class="cyber-card timeline-content">
             <div class="timeline-header">
               <div class="timeline-title">
                 <h3>VerifiHireAI - AI Recruitment Platform</h3>
@@ -374,7 +380,6 @@
               <span class="tech-tag">LLM Parsing</span>
               <span class="tech-tag">Celery Workers</span>
               <span class="tech-tag">ATS Matching</span>
-              <span class="tech-tag">React Coordination</span>
             </div>
             
             <div class="timeline-details">
@@ -385,13 +390,16 @@
                 <li>Designed schema models mapping recruiter preferences, assessments, and interview outputs.</li>
               </ul>
             </div>
+            <div class="timeline-expand-btn">
+              <span>View Project Details</span> <i class="fa-solid fa-chevron-down"></i>
+            </div>
           </div>
         </div>
         
         <!-- SoulSupport -->
         <div class="timeline-item">
           <div class="timeline-marker"></div>
-          <div class="glass-card timeline-content">
+          <div class="cyber-card timeline-content">
             <div class="timeline-header">
               <div class="timeline-title">
                 <h3>SoulSupport - Emotional Wellbeing Platform</h3>
@@ -406,7 +414,6 @@
               <span class="tech-tag">JWT</span>
               <span class="tech-tag">Flutter Integration</span>
               <span class="tech-tag">Celery Notifications</span>
-              <span class="tech-tag">SQL Tuning</span>
             </div>
             
             <div class="timeline-details">
@@ -417,6 +424,9 @@
                 <li>Managed API routing, Flutter cross-platform synchronization, and Azure VM hosting deployment.</li>
               </ul>
             </div>
+            <div class="timeline-expand-btn">
+              <span>View Project Details</span> <i class="fa-solid fa-chevron-down"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -426,7 +436,7 @@
   <!-- ==========================================
        PUBLIC REPOSITORIES SECTION
        ========================================== -->
-  <section class="section" id="projects">
+  <section class="section reveal" id="projects">
     <div class="container">
       <div class="section-header">
         <h2>GitHub Repositories</h2>
@@ -435,7 +445,7 @@
       
       <div class="projects-grid">
         <!-- Soul-Support -->
-        <div class="glass-card project-card">
+        <div class="cyber-card project-card">
           <div>
             <div class="project-header">
               <div class="project-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
@@ -454,7 +464,7 @@
         </div>
         
         <!-- project -->
-        <div class="glass-card project-card">
+        <div class="cyber-card project-card">
           <div>
             <div class="project-header">
               <div class="project-icon"><i class="fa-solid fa-microchip"></i></div>
@@ -473,7 +483,7 @@
         </div>
         
         <!-- mineprojects -->
-        <div class="glass-card project-card">
+        <div class="cyber-card project-card">
           <div>
             <div class="project-header">
               <div class="project-icon"><i class="fa-solid fa-folder-open"></i></div>
@@ -492,7 +502,7 @@
         </div>
         
         <!-- codes -->
-        <div class="glass-card project-card">
+        <div class="cyber-card project-card">
           <div>
             <div class="project-header">
               <div class="project-icon"><i class="fa-solid fa-code-compare"></i></div>
@@ -516,7 +526,7 @@
   <!-- ==========================================
        CONTACT SECTION
        ========================================== -->
-  <section class="section" id="contact" style="background: var(--bg-secondary); transition: background-color 0.4s ease;">
+  <section class="section reveal" id="contact">
     <div class="container">
       <div class="section-header">
         <h2>Initiate Contact</h2>
@@ -526,7 +536,7 @@
       <div class="contact-container">
         <!-- Contact details -->
         <div class="contact-info">
-          <div class="glass-card contact-method">
+          <div class="cyber-card contact-method">
             <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
             <div class="contact-text">
               <h4>Direct Email</h4>
@@ -534,7 +544,7 @@
             </div>
           </div>
           
-          <div class="glass-card contact-method">
+          <div class="cyber-card contact-method">
             <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
             <div class="contact-text">
               <h4>LinkedIn Profile</h4>
@@ -542,7 +552,7 @@
             </div>
           </div>
           
-          <div class="glass-card contact-method">
+          <div class="cyber-card contact-method">
             <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
             <div class="contact-text">
               <h4>Work Location</h4>
@@ -552,7 +562,7 @@
         </div>
         
         <!-- Contact Form -->
-        <form class="glass-card contact-form" id="contact-form">
+        <form class="cyber-card contact-form" id="contact-form">
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
