@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:020617,35:00f2fe,70:7c3aed,100:db00ff&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=42&fontAlignY=36&desc=AI%20Developer%20%7C%20Python%20%26%20Django/FastAPI%20Backend%20%7C%20RAG%20%26%20ChromaDB&descAlignY=58&descSize=16" alt="Sridhar Reddy Guda Header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:020617,35:00f2fe,70:7c3aed,100:db00ff&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=42&fontAlignY=36&desc=AI%20Developer%20%7C%20Python%20%26%20Django/DRF%20Backend%20%7C%20Flutter%20%26%20React&descAlignY=58&descSize=16" alt="Sridhar Reddy Guda Header" />
 </p>
 
 <h1 align="center">⚡ Sridhar Reddy Guda</h1>
 
 <p align="center">
   <b>Software Engineer with 2+ Years of Production Experience</b><br />
-  Specializing in <b>AI / RAG Systems (ChromaDB)</b>, <b>50+ Scalable REST APIs (Django / DRF / FastAPI)</b>, <b>Real-Time WebSockets & React UI</b>, and <b>Cloud DevOps (Docker & Azure VM)</b>.
+  Specializing in <b>AI / RAG Systems (ChromaDB)</b>, <b>50+ REST APIs (Python & Django REST Framework)</b>, <b>Flutter & Dart Mobile Frontends</b>, <b>React & Tailwind Web UI</b>, and <b>Cloud DevOps (Docker & Azure VM)</b>.
 </p>
 
 <p align="center">
@@ -34,20 +34,9 @@ Choose your relevant domain below to view custom engineering highlights, metrics
 | Hiring Stream / Role | Core Technologies | Key Business Impact | Jump To Section |
 | :--- | :--- | :--- | :---: |
 | 🤖 **AI / GenAI / RAG Engineer** | RAG, ChromaDB Vector DB, Prompt Engineering, ATS Engines, LLM Interviews | Built RAG pipeline with 98% accuracy & context grounding | [👉 AI Stream](#-1-ai--genai--rag-engineering-stream) |
-| 🐍 **Python / Backend Developer** | Python 3.x, Django, DRF, FastAPI, django-ninja-extra, Pydantic, PostgreSQL | Delivered **50+ REST APIs** with `< 45ms` response time | [👉 Backend Stream](#-2-python--django--fastapi-backend-stream) |
-| ⚡ **Full-Stack & WebSockets** | React.js, TailwindCSS, Django Channels WSS, Redis Channel Layer | Built live tracking & messaging streaming `< 40ms` latency | [👉 Full Stack Stream](#-3-full-stack--real-time-websockets-stream) |
+| 🐍 **Python / Backend Developer** | Python 3.x, Django, Django REST Framework (DRF), FastAPI, PostgreSQL | Delivered **50+ REST APIs** with `< 45ms` response time | [👉 Backend Stream](#-2-python--django--fastapi-backend-stream) |
+| 📱 **Mobile & Web Frontends** | Flutter & Dart (NeevPath & SoulSupport), React & Tailwind (VerifiHireAI) | Cross-platform mobile apps & responsive recruiter dashboards | [👉 Frontend Stream](#-3-mobile--web-frontend-stream) |
 | ☁️ **DevOps / Cloud Engineer** | Docker Containers, Azure VMs, Linux, Git/GitHub Actions, pytest | Zero-downtime releases & containerized microservices | [👉 DevOps Stream](#-4-devops--cloud-infrastructure-stream) |
-
----
-
-## 💡 Key Engineering Business Metrics
-
-<p align="center">
-  <img src="https://img.shields.io/badge/50%2B-REST_APIs_Delivered-00f2fe?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/2%2B_Years-Production_Experience-7c3aed?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/3-Enterprise_SaaS_Platforms-db00ff?style=for-the-badge&logo=django&logoColor=white" />
-  <img src="https://img.shields.io/badge/10,000%2B-Daily_Async_Jobs-10b981?style=for-the-badge&logo=redis&logoColor=white" />
-</p>
 
 ---
 
@@ -64,13 +53,13 @@ Choose your relevant domain below to view custom engineering highlights, metrics
 
 ```mermaid
 flowchart TD
-    A[Student / Teacher Client] -->|Ask Query| B[Django REST / FastAPI Gateway]
+    A[Flutter & Dart Mobile App] -->|HTTPS REST Request| B[Django REST Framework Gateway]
     B -->|Generate 384-d Embedding| C[SentenceTransformer Engine]
     C -->|Cosine Vector Search| D[(ChromaDB Vector Store)]
     D -->|Top 3 Context Chunks| E[Prompt Augmentation Module]
     E -->|Augmented Prompt| F[LLM / OpenAI API]
     F -->|Grounded AI Response| B
-    B -->|Deliver Answer| A
+    B -->|JSON Response| A
 ```
 </details>
 
@@ -79,7 +68,7 @@ flowchart TD
 ## 🐍 2. Python / Django / FastAPI Backend Stream
 
 ### **What I Bring as a Backend Engineer:**
-- **50+ REST APIs**: Designed and maintained robust, production-grade endpoints using **Django, DRF, FastAPI, and django-ninja-extra**.
+- **50+ REST APIs**: Designed and maintained robust, production-grade endpoints using **Python, Django, and Django REST Framework (DRF)**.
 - **Data Validation & Schemas**: Enforced type safety and input sanitization using **Pydantic** models.
 - **Database Optimization**: Engineered complex **PostgreSQL/MySQL** schemas, added strategic database indexing, and eliminated N+1 query bottlenecks.
 - **Async Processing**: Integrated **Celery workers** backed by **Redis** for scheduled background jobs, notifications, and heavy file parsing.
@@ -89,9 +78,9 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    Client[REST Client / Frontend] -->|HTTPS Requests| Gateway[Django REST / FastAPI Gateway]
+    Client[Flutter Mobile / React Web] -->|REST API Requests| Gateway[Django REST Framework Gateway]
     Gateway -->|JWT Validation & RBAC| Auth[Role-Based Security Guard]
-    Auth -->|Valid Request| Router[Ninja Extra Controller]
+    Auth -->|Valid Request| Router[DRF Viewsets & Controllers]
     Router -->|Pydantic Schema Check| Service[Business Logic Layer]
     Service -->|Async Tasks| Celery[Celery Workers + Redis]
     Service -->|Optimized Queries| DB[(PostgreSQL 15 DB)]
@@ -100,24 +89,12 @@ flowchart LR
 
 ---
 
-## ⚡ 3. Full-Stack & Real-Time WebSockets Stream
+## 📱 3. Mobile & Web Frontend Stream
 
-### **What I Bring as a Full-Stack Engineer:**
-- **Real-Time Streaming**: Implemented low-latency WebSockets using **Django Channels** and **Redis channel layers** (`< 40ms` latency).
-- **React.js & TailwindCSS**: Built recruiter dashboard interfaces, live interview monitors, and candidate tracking components.
-- **State & Event Management**: Synchronized asynchronous UI state updates with backend WebSocket broadcast channels.
-
-<details>
-<summary><b>🔍 View WebSockets & React Architecture Diagram</b></summary>
-
-```mermaid
-flowchart TD
-    ReactApp[React.js + Tailwind UI] -->|WSS Handshake| Channels[Django Channels ASGI]
-    Channels -->|Publish/Subscribe| Redis[(Redis Channel Layer)]
-    Redis -->|Broadcast Event| Channels
-    Channels -->|Push Live Updates| ReactApp
-```
-</details>
+### **What I Bring as a Frontend Developer:**
+- **Flutter & Dart**: Developed cross-platform mobile apps for **NeevPath** (School ERP) and **SoulSupport** (Secure Emotional Wellbeing).
+- **React.js & TailwindCSS**: Built web dashboards for **VerifiHireAI** (AI Recruitment & Candidate Management).
+- **REST API Integration**: Synchronized mobile and web UI state with Django REST Framework backend services.
 
 ---
 
@@ -128,19 +105,6 @@ flowchart TD
 - **Azure Virtual Machines**: Deployed web servers, Celery workers, Redis instances, and PostgreSQL databases on Azure VMs.
 - **Testing & Quality Assurance**: Wrote comprehensive **pytest unit test suites** for API validation and zero-downtime deployments.
 
-<details>
-<summary><b>🔍 View Docker & Azure Deployment Architecture Diagram</b></summary>
-
-```mermaid
-flowchart TD
-    Code[Git Repo / Push] -->|CI/CD Pipeline| Actions[GitHub Actions Runner]
-    Actions -->|Build & Test| Pytest[pytest Unit Testing]
-    Pytest -->|Containerize| Docker[Docker Image Registry]
-    Docker -->|Deploy Compose| Azure[(Azure Virtual Machine)]
-    Azure -->|Serve Traffic| Users[Global Traffic]
-```
-</details>
-
 ---
 
 ## 💼 Work Experience
@@ -148,41 +112,23 @@ flowchart TD
 ### **Software Engineer — Python Backend & AI Integration**
 **IndusInnovate Technologies Pvt. Ltd., Hyderabad** | *April 2024 – June 2026*
 
-- Developed scalable backend services using **Python, Django, DRF, django-ninja-extra with Pydantic schemas, and FastAPI** across 3 enterprise SaaS platforms.
+- Developed scalable backend services using **Python, Django, and Django REST Framework (DRF)** across 3 enterprise SaaS platforms.
 - Designed and maintained **50+ RESTful APIs** for authentication, admin workflows, analytics, real-time messaging, and AI-driven features.
 - Integrated LLMs into production applications, including a **Retrieval-Augmented Generation (RAG) pipeline with ChromaDB** to ground AI responses in domain content.
 - Engineered AI-driven features including resume parsing, ATS fit scoring, AI candidate interviews, and adaptive learning engines.
-- Built **WebSocket-based real-time features (live tracking, candidate monitoring, chat)** using Django Channels with Redis as channel layer.
-- Contributed React and TailwindCSS frontend features, building recruiter dashboard views and interactive management interfaces.
-- Wrote **pytest unit test suites** to validate backend business logic and ensure safe, zero-downtime continuous integration.
-- Containerized applications using **Docker** and deployed services on **Azure Virtual Machines**, optimizing PostgreSQL/MySQL queries.
-
----
-
-## 🛠️ Complete Technical Arsenal
-
-```
-┌─────────────────────────┬──────────────────────────────────────────────────────────────┐
-│ Category                │ Tech Stack & Capabilities                                    │
-├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ AI & LLMs               │ RAG Pipelines, ChromaDB (Vector DB), Prompt Eng, ATS Scoring │
-│ Backend & APIs          │ Python 3.x, Django, DRF, FastAPI, django-ninja-extra, Pydantic│
-│ Real-Time & Frontend    │ React.js, TailwindCSS, WebSockets, Django Channels, Flutter  │
-│ Databases & Async       │ PostgreSQL, MySQL, ChromaDB, Redis Cache, Celery Workers     │
-│ Cloud & DevOps          │ Azure VMs, Docker, Kubernetes (Exposure), Linux, Git, pytest  │
-│ Auth & Security         │ JWT Authentication, OAuth2, Role-Based Access Control (RBAC)  │
-└─────────────────────────┴──────────────────────────────────────────────────────────────┘
-```
+- Built **Flutter & Dart mobile apps** for NeevPath and SoulSupport platforms.
+- Contributed **React.js and TailwindCSS frontend features** for VerifiHireAI recruiter dashboards.
+- Containerized applications using **Docker** and deployed services on **Azure Virtual Machines**.
 
 ---
 
 ## 🌟 Featured Enterprise Projects
 
-| Project | Domain | Core Tech Stack | Impact & Highlights |
-| :--- | :--- | :--- | :--- |
-| **NeevPath** | EdTech AI | `Python` `Django` `DRF` `RAG` `ChromaDB` `WebSockets` `Docker` `Azure` | Built ChromaDB RAG pipeline for AI doubt clarification & WebSockets live tracking. |
-| **VerifiHireAI** | HRTech AI | `Python` `Django` `DRF` `React` `Tailwind` `WebSockets` `LLMs` `Celery` | Built LLM automated interview bot, async resume parser, & React recruiter dashboard. |
-| **SoulSupport** | Mental Health | `Python` `Django REST` `PostgreSQL` `Redis` `JWT` `RBAC` `Docker` | Built secure encrypted messaging portal with strict multi-tenant JWT RBAC boundaries. |
+| Project | Domain | Frontend | Backend & Storage | Impact & Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **NeevPath** | EdTech AI | `Flutter & Dart` | `Python` `Django REST (DRF)` `RAG` `ChromaDB` `Docker` `Azure` | Built Flutter mobile app & ChromaDB RAG pipeline for AI doubt clarification. |
+| **VerifiHireAI** | HRTech AI | `React.js & Tailwind` | `Python` `Django REST (DRF)` `LLMs` `Celery` `Docker` `Azure` | Built React web dashboard & LLM automated interview bot. |
+| **SoulSupport** | Mental Health | `Flutter & Dart` | `Python` `Django REST (DRF)` `PostgreSQL` `JWT` `RBAC` `Docker` | Built Flutter mobile app & secure encrypted messaging with strict RBAC boundaries. |
 
 ---
 
@@ -203,42 +149,22 @@ flowchart TD
 
 ```mermaid
 pie title Production Engineering & Technology Distribution
-    "Python & Backend APIs (Django/FastAPI)" : 40
+    "Python & Django REST Framework (DRF)" : 40
     "AI & RAG Pipelines (ChromaDB)" : 25
-    "Real-Time WebSockets & Async (Celery/Redis)" : 20
+    "Flutter & Dart Mobile Frontends" : 20
     "DevOps & Infrastructure (Docker/Azure)" : 15
 ```
 
-### 2. System Delivery Timeline (Gantt Chart)
-
-```mermaid
-gantt
-    title Production System Delivery Timeline (2024 - 2026)
-    dateFormat YYYY-MM
-    axisFormat %b %Y
-
-    section Enterprise SaaS
-    NeevPath School ERP (RAG & WebSockets) : active, 2024-04, 2025-03
-    VerifiHireAI (LLM ATS & Interview Bot) : 2025-01, 2025-10
-    SoulSupport (Real-time RBAC & Chat)    : 2025-08, 2026-06
-
-    section Architecture & DevOps
-    50+ REST APIs Delivery                 : 2024-04, 2026-06
-    Docker & Azure VM Deployments           : 2024-06, 2026-06
-```
-
-### 3. Production Competency & Capability Distribution
+### 2. Production Competency & Capability Distribution
 
 ```
 📊 Production Capability Matrix
 
-Python / Backend APIs  [████████████████████] 98% (50+ REST APIs)
-RAG & ChromaDB         [██████████████████  ] 92% (Context Vector Search)
-Django / DRF           [██████████████████  ] 92% (Enterprise SaaS)
-FastAPI & Pydantic     [████████████████    ] 88% (High Throughput)
-WebSockets & Redis     [████████████████    ] 86% (Real-Time Channels)
-React.js & Tailwind    [██████████████      ] 82% (Full-Stack UI)
-Docker & Azure VM      [██████████████      ] 82% (Container DevOps)
+Python & Django REST (DRF) [████████████████████] 98% (50+ REST APIs)
+RAG & ChromaDB             [██████████████████  ] 92% (Context Vector Search)
+Flutter & Dart             [████████████████    ] 88% (Mobile Frontends)
+React.js & Tailwind        [██████████████      ] 84% (Web Dashboards)
+Docker & Azure VM          [██████████████      ] 82% (Container DevOps)
 ```
 
 ---

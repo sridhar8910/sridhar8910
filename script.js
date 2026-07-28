@@ -133,9 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const typed = document.getElementById('typed-text');
   const phrases = [
     "AI & RAG Pipeline Engineer (ChromaDB)",
-    "Python, Django & FastAPI Backend Specialist",
-    "50+ Production REST APIs & WebSockets",
-    "Full-Stack Web Developer (React + Tailwind)",
+    "Python & Django REST Framework (DRF) Expert",
+    "Flutter & Dart Mobile App Developer",
+    "React.js & TailwindCSS Full-Stack Integration",
     "Cloud & Container DevOps (Docker + Azure VM)"
   ];
   let pi = 0, ci = 0;
@@ -176,26 +176,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const platformsData = {
     neevpath: {
       nodes: [
-        { id: "np_client", badge: "Frontend Tier", icon: "fa-brands fa-react", title: "React & Flutter App", sub: "WebSockets & UI", active: true },
-        { id: "np_gateway", badge: "API Gateway", icon: "fa-solid fa-network-wired", title: "Django REST / FastAPI", sub: "Pydantic Schemas" },
+        { id: "np_client", badge: "Mobile Frontend", icon: "fa-solid fa-mobile-screen", title: "Flutter & Dart App", sub: "Cross-Platform ERP UI", active: true },
+        { id: "np_gateway", badge: "API Gateway", icon: "fa-solid fa-network-wired", title: "Django REST (DRF)", sub: "50+ REST APIs & JWT" },
         { id: "np_async", badge: "Async Engine", icon: "fa-solid fa-clock-rotate-left", title: "Celery & Redis", sub: "Background Queues" },
         { id: "np_rag", badge: "Vector AI", icon: "fa-solid fa-microchip", title: "ChromaDB RAG + LLM", sub: "Doubt Clarification" },
         { id: "np_cloud", badge: "DevOps & Cloud", icon: "fa-solid fa-cloud-arrow-up", title: "Docker on Azure VM", sub: "PostgreSQL & CI/CD" }
       ],
       details: {
         np_client: {
-          tag: "NeevPath Frontend", title: "React.js & Flutter School ERP Portals",
-          desc: "Multi-role student, parent, teacher, and admin web portals built with React.js and TailwindCSS. Communicates via WSS WebSockets for real-time attendance alerts and chat.",
-          filename: "ws_neevpath_client.js",
-          code: `const ws = new WebSocket('wss://api.neevpath.com/ws/live-school/');\nws.onmessage = (event) => {\n  const data = JSON.parse(event.data);\n  updateStudentAttendanceUI(data.student_id, data.status);\n};`,
-          metrics: [{ label: "Portals", val: "5 User Roles" }, { label: "Protocol", val: "WSS WebSockets" }, { label: "Frontend", val: "React + Tailwind" }]
+          tag: "NeevPath Frontend", title: "Flutter & Dart Cross-Platform ERP Application",
+          desc: "Multi-portal mobile application engineered with Flutter & Dart for students, parents, teachers, and school management. Communicates with Python/Django REST Framework backend.",
+          filename: "neevpath_app.dart",
+          code: `import 'package:flutter/material.dart';\nimport 'package:http/http.dart' as http;\n\nFuture<void> fetchStudentData(String jwtToken) async {\n  final response = await http.get(\n    Uri.parse('https://api.neevpath.com/v1/school/dashboard/'),\n    headers: {'Authorization': 'Bearer $jwtToken'},\n  );\n}`,
+          metrics: [{ label: "Frontend Stack", val: "Flutter & Dart" }, { label: "Portals", val: "5 User Roles" }, { label: "Backend API", val: "Django REST (DRF)" }]
         },
         np_gateway: {
-          tag: "NeevPath API Gateway", title: "Django REST & django-ninja-extra API Engine",
-          desc: "API gateway exposing student assessments, fees, exams, and AI doubt resolution endpoints. Enforces JWT authentication and RBAC.",
-          filename: "neevpath_api.py",
-          code: `@api_controller('/v1/school', tags=['School ERP'])\nclass SchoolController:\n    @http_post('/doubts/ask', response={200: dict})\n    def ask_ai(self, request, payload: DoubtSchema):\n        task = run_rag_pipeline.delay(payload.query_text)\n        return 200, {"task_id": task.id}`,
-          metrics: [{ label: "Endpoints", val: "30+ APIs" }, { label: "Security", val: "JWT & RBAC" }, { label: "Validation", val: "Pydantic" }]
+          tag: "NeevPath API Gateway", title: "Django & Django REST Framework (DRF) Engine",
+          desc: "API gateway written in Python, Django, and DRF exposing student assessments, fees, exams, and AI doubt resolution endpoints with JWT auth and RBAC.",
+          filename: "views.py",
+          code: `from rest_framework.views import APIView\nfrom rest_framework.response import Response\nfrom rest_framework.permissions import IsAuthenticated\n\nclass AIDoubtClarificationView(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        task = run_rag_pipeline.delay(request.data.get('query_text'))\n        return Response({'status': 'queued', 'task_id': task.id})`,
+          metrics: [{ label: "Backend", val: "Python & DRF" }, { label: "Security", val: "JWT & RBAC" }, { label: "Endpoints", val: "30+ REST APIs" }]
         },
         np_async: {
           tag: "Async Queue", title: "Celery Worker & Redis Task Scheduling",
@@ -222,29 +222,29 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     verifihire: {
       nodes: [
-        { id: "vh_recruiter", badge: "Recruiter UI", icon: "fa-solid fa-desktop", title: "React Recruiter Suite", sub: "Tailwind & Dashboards", active: true },
-        { id: "vh_parser", badge: "NLP Engine", icon: "fa-solid fa-file-invoice", title: "Async Resume Parser", sub: "LLM PDF Extraction" },
-        { id: "vh_ats", badge: "Scoring Engine", icon: "fa-solid fa-calculator", title: "ATS Match & Rank", sub: "Fit Vector Scoring" },
-        { id: "vh_bot", badge: "AI Interviewer", icon: "fa-solid fa-robot", title: "LLM Live Interview", sub: "Dynamic Follow-ups" },
+        { id: "vh_recruiter", badge: "Web Frontend", icon: "fa-brands fa-react", title: "React & Tailwind Suite", sub: "Recruiter Dashboards", active: true },
+        { id: "vh_parser", badge: "API & NLP", icon: "fa-solid fa-file-invoice", title: "Django REST NLP Parser", sub: "Async Resume Screening" },
+        { id: "vh_ats", badge: "Scoring Engine", icon: "fa-solid fa-calculator", title: "ATS Fit Scoring", sub: "Vector Cosine Match" },
+        { id: "vh_bot", badge: "AI Interviewer", icon: "fa-solid fa-robot", title: "LLM Live Interview Bot", sub: "Dynamic Summaries" },
         { id: "vh_deploy", badge: "Cloud Microservices", icon: "fa-brands fa-docker", title: "Docker & Azure VM", sub: "Scalable Containers" }
       ],
       details: {
         vh_recruiter: {
-          tag: "VerifiHire UI", title: "React & TailwindCSS Recruiter Dashboard",
-          desc: "Recruiter interfaces for candidate pipeline tracking, bulk resume uploads, and live interview monitoring via WebSockets.",
+          tag: "VerifiHire Frontend", title: "React.js & TailwindCSS Recruiter Dashboard",
+          desc: "Recruiter dashboard built with React.js and TailwindCSS for candidate pipeline tracking, resume uploads, and interview management.",
           filename: "recruiter_dashboard.jsx",
-          code: `export const Dashboard = () => {\n  const { candidateStream } = useWebSocket('wss://api.verifihire.ai/ws/interviews/');\n  return <CandidateGrid data={candidateStream} />;\n};`,
-          metrics: [{ label: "Framework", val: "React.js" }, { label: "Styling", val: "TailwindCSS" }, { label: "Updates", val: "Real-time Stream" }]
+          code: `import React, { useState, useEffect } from 'react';\n\nexport const Dashboard = () => {\n  const [candidates, setCandidates] = useState([]);\n  useEffect(() => {\n    fetch('/api/v1/recruitment/candidates/').then(r => r.json()).then(setCandidates);\n  }, []);\n  return <CandidateGrid data={candidates} />;\n};`,
+          metrics: [{ label: "Frontend", val: "React.js" }, { label: "Styling", val: "TailwindCSS" }, { label: "Backend API", val: "Django REST (DRF)" }]
         },
         vh_parser: {
-          tag: "NLP Parser", title: "LLM-Powered Resume Information Extraction",
+          tag: "NLP Parser", title: "Django REST & LLM Resume Extraction",
           desc: "Async Celery pipeline extracting technical skills, work history, education, and credentials from high-volume PDF resume uploads.",
-          filename: "resume_parser.py",
-          code: `def extract_resume_metadata(pdf_bytes):\n    text = extract_pdf_text(pdf_bytes)\n    prompt = f"Extract skills, experience from:\\n{text}"\n    return llm.generate_json(prompt)`,
-          metrics: [{ label: "Async Queue", val: "Celery Uploads" }, { label: "Format", val: "PDF / DOCX" }, { label: "Parsing Latency", val: "< 1.2s" }]
+          filename: "views.py",
+          code: `@api_view(['POST'])\ndef upload_resume(request):\n    task = parse_resume_async.delay(request.FILES['resume'].read())\n    return Response({'task_id': task.id}, status=202)`,
+          metrics: [{ label: "Backend", val: "Django REST (DRF)" }, { label: "Async Queue", val: "Celery Uploads" }, { label: "Format", val: "PDF / DOCX" }]
         },
         vh_ats: {
-          tag: "ATS Engine", title: "Vector ATS Fit Scoring & Ranking",
+          tag: "ATS Engine", title: "Vector ATS Fit Scoring & Candidate Ranking",
           desc: "Computes similarity score between candidate profiles and job requirements using ChromaDB vector embeddings.",
           filename: "ats_scorer.py",
           code: `def score_candidate(candidate_vec, job_spec_vec):\n    similarity = cosine_similarity(candidate_vec, job_spec_vec)\n    return round(similarity * 100, 2)`,
@@ -259,35 +259,35 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         vh_deploy: {
           tag: "Deploy", title: "Docker Microservices on Azure Infrastructure",
-          desc: "Containerized deployment of recruitment backend, Celery workers, and Redis channels on Azure VM.",
-          filename: "docker_deploy.sh",
-          code: `docker compose -f docker-compose.prod.yml up -d --build`,
+          desc: "Containerized deployment of recruitment Django REST backend, Celery workers, and Redis channels on Azure VM.",
+          filename: "docker-compose.yml",
+          code: `version: '3.8'\nservices:\n  backend:\n    image: verifihire/django-api:latest\n    ports: ["8000:8000"]`,
           metrics: [{ label: "Orchestration", val: "Docker Compose" }, { label: "Cloud", val: "Azure VMs" }, { label: "CI/CD", val: "GitHub Actions" }]
         }
       }
     },
     soulsupport: {
       nodes: [
-        { id: "ss_client", badge: "Private App", icon: "fa-solid fa-mobile-screen", title: "Flutter & Mobile Client", sub: "Encrypted Messaging", active: true },
-        { id: "ss_wss", badge: "Real-time Gateway", icon: "fa-solid fa-satellite-dish", title: "Django Channels WSS", sub: "Sub-40ms Delivery" },
-        { id: "ss_auth", badge: "Security", icon: "fa-solid fa-key", title: "JWT & RBAC Controller", sub: "Multi-Role Guard" },
+        { id: "ss_client", badge: "Mobile Frontend", icon: "fa-solid fa-mobile-screen", title: "Flutter & Dart App", sub: "Encrypted Support UI", active: true },
+        { id: "ss_gateway", badge: "API Gateway", icon: "fa-solid fa-network-wired", title: "Django REST (DRF)", sub: "Secure REST APIs" },
+        { id: "ss_auth", badge: "Security Guard", icon: "fa-solid fa-key", title: "JWT & RBAC Controller", sub: "Multi-Tenant Isolation" },
         { id: "ss_db", badge: "Database", icon: "fa-solid fa-leaf", title: "PostgreSQL Database", sub: "Query Tuning & Indexing" },
-        { id: "ss_moderation", badge: "Support Admin", icon: "fa-solid fa-user-shield", title: "Moderation & Analytics", sub: "Admin Diagnostics" }
+        { id: "ss_moderation", badge: "Support Admin", icon: "fa-solid fa-user-shield", title: "Admin Diagnostics", sub: "Moderation & Reporting" }
       ],
       details: {
         ss_client: {
-          tag: "SoulSupport Client", title: "Secure Flutter Cross-Platform Mobile Client",
-          desc: "Flutter mobile application communicating with Django REST & Channels for private, encrypted support sessions.",
-          filename: "support_session.dart",
-          code: `final channel = WebSocketChannel.connect(Uri.parse('wss://api.soulsupport.org/ws/chat/'));\nchannel.stream.listen((message) => handleIncomingChat(message));`,
-          metrics: [{ label: "Client", val: "Flutter Mobile" }, { label: "Security", val: "Encrypted Channels" }, { label: "Latency", val: "< 40ms" }]
+          tag: "SoulSupport Frontend", title: "Flutter & Dart Cross-Platform Mobile Client",
+          desc: "Flutter mobile application communicating with Python/Django REST Framework APIs for private, encrypted emotional support sessions.",
+          filename: "support_client.dart",
+          code: `import 'package:flutter/material.dart';\nimport 'package:http/http.dart' as http;\n\nFuture<void> sendPrivateMessage(String msg, String jwtToken) async {\n  final res = await http.post(\n    Uri.parse('https://api.soulsupport.org/v1/conversations/send/'),\n    headers: {'Authorization': 'Bearer $jwtToken'},\n    body: {'message': msg},\n  );\n}`,
+          metrics: [{ label: "Frontend", val: "Flutter & Dart" }, { label: "Security", val: "Encrypted REST APIs" }, { label: "Backend API", val: "Django REST (DRF)" }]
         },
-        ss_wss: {
-          tag: "WSS Engine", title: "Django Channels & Redis Real-Time Socket Layer",
-          desc: "Asynchronous WebSocket server handling user-to-member message routing, presence detection, and live notification pushes.",
-          filename: "consumers.py",
-          code: `class SupportChatConsumer(AsyncWebsocketConsumer):\n    async def connect(self):\n        self.user = self.scope['user']\n        if self.user.is_authenticated:\n            await self.accept()`,
-          metrics: [{ label: "Gateway", val: "Django Channels" }, { label: "Channel Bus", val: "Redis Memory" }, { label: "Protocol", val: "WSS Sockets" }]
+        ss_gateway: {
+          tag: "Django REST Gateway", title: "Django REST Framework (DRF) Core Engine",
+          desc: "High-security API gateway handling user authentication, private conversation threads, notification queues, and moderation dashboards.",
+          filename: "views.py",
+          code: `from rest_framework.generics import ListCreateAPIView\nfrom rest_framework.permissions import IsAuthenticated\n\nclass ConversationView(ListCreateAPIView):\n    serializer_class = ConversationSerializer\n    permission_classes = [IsAuthenticated]`,
+          metrics: [{ label: "Backend", val: "Django REST (DRF)" }, { label: "Database", val: "PostgreSQL 15" }, { label: "Authentication", val: "JWT Tokens" }]
         },
         ss_auth: {
           tag: "Security Guard", title: "JWT Token Validation & Multi-Tenant RBAC",
@@ -382,19 +382,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiData = {
     rag_query: {
       status: "200 OK", time: "28ms",
-      body: `{\n  "status": "success",\n  "endpoint": "/v1/ai/rag/clarify-doubt",\n  "chromadb_collection": "neevpath_curriculum",\n  "query": "Explain Snell's Law in Physics",\n  "similarity_distance": 0.082,\n  "retrieved_context_chunks": 3,\n  "llm_output": "Snell's Law (n1 sin θ1 = n2 sin θ2) describes the ratio of angles of incidence and refraction for light passing between isotropic media.",\n  "timestamp": "2026-07-29T00:52:00.000Z"\n}`
+      body: `{\n  "status": "success",\n  "backend_framework": "Django REST Framework (DRF)",\n  "endpoint": "/v1/ai/rag/clarify-doubt",\n  "chromadb_collection": "neevpath_curriculum",\n  "query": "Explain Snell's Law in Physics",\n  "similarity_distance": 0.082,\n  "retrieved_context_chunks": 3,\n  "llm_output": "Snell's Law (n1 sin θ1 = n2 sin θ2) describes the ratio of angles of incidence and refraction for light passing between isotropic media.",\n  "timestamp": "2026-07-29T00:56:00.000Z"\n}`
     },
     ats_score: {
       status: "200 OK", time: "34ms",
-      body: `{\n  "status": "success",\n  "endpoint": "/v1/recruitment/ats-match",\n  "candidate_name": "Sridhar Reddy Guda",\n  "job_role": "Python AI & Backend Engineer",\n  "fit_score": 94.5,\n  "matching_keywords": ["Python 3.x", "Django REST", "FastAPI", "RAG", "ChromaDB", "WebSockets", "Docker", "Azure"],\n  "recommendation": "STRONG MATCH"\n}`
+      body: `{\n  "status": "success",\n  "backend_framework": "Django REST Framework (DRF)",\n  "endpoint": "/v1/recruitment/ats-match",\n  "candidate_name": "Sridhar Reddy Guda",\n  "job_role": "Python AI & Backend Engineer",\n  "fit_score": 94.5,\n  "matching_keywords": ["Python 3.x", "Django REST", "FastAPI", "RAG", "ChromaDB", "Flutter", "Docker", "Azure"],\n  "recommendation": "STRONG MATCH"\n}`
     },
     jwt_auth: {
       status: "200 OK", time: "18ms",
-      body: `{\n  "status": "success",\n  "endpoint": "/v1/auth/jwt-token",\n  "token_type": "Bearer",\n  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",\n  "user": {\n    "name": "Sridhar Reddy Guda",\n    "roles": ["BACKEND_LEAD", "AI_ENGINEER"],\n    "permissions": ["all"]\n  }\n}`
+      body: `{\n  "status": "success",\n  "backend_framework": "Django REST Framework (DRF)",\n  "endpoint": "/v1/auth/jwt-token",\n  "token_type": "Bearer",\n  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",\n  "user": {\n    "name": "Sridhar Reddy Guda",\n    "roles": ["BACKEND_LEAD", "AI_ENGINEER"],\n    "permissions": ["all"]\n  }\n}`
     },
-    wss_stream: {
-      status: "101 Switching Protocols", time: "12ms",
-      body: `{\n  "status": "connected",\n  "channel_layer": "redis://127.0.0.1:6379/0",\n  "websocket_protocol": "WSS",\n  "group": "live_school_updates",\n  "active_subscribers": 1420,\n  "latency": "< 35ms"\n}`
+    flutter_session: {
+      status: "200 OK", time: "15ms",
+      body: `{\n  "status": "success",\n  "backend_framework": "Django REST Framework (DRF)",\n  "endpoint": "/v1/mobile/flutter-sync",\n  "mobile_frontend": "Flutter & Dart",\n  "encrypted_session": true,\n  "user_role": "STUDENT_PORTAL",\n  "sync_timestamp": "2026-07-29T00:56:00.000Z"\n}`
     }
   };
 
@@ -432,35 +432,35 @@ document.addEventListener('DOMContentLoaded', () => {
     neevpath: {
       title: "NeevPath — AI-Powered Smart School Management Platform",
       badge: "EdTech AI",
-      desc: "Full-scale school ERP with JWT auth, multi-role RBAC across 5 portals, real-time WebSockets tracking via Django Channels + Redis, Celery background pipelines, and a GenAI learning assistant powered by ChromaDB RAG.",
-      code: `// NeevPath RAG Retriever & Vector Matcher
+      desc: "Full-scale school ERP with Flutter & Dart cross-platform mobile frontend and Python/Django REST Framework (DRF) backend. Includes JWT auth, multi-role RBAC across 5 portals, Celery background pipelines, and a GenAI learning assistant powered by ChromaDB RAG.",
+      code: `// NeevPath RAG Retriever & Vector Matcher (Django REST Framework Backend)
 class NeevPathRAGEngine:
     def query_doubt(self, student_prompt):
         embeddings = self.encoder.encode(student_prompt)
         docs = self.chroma_db.query(query_embeddings=[embeddings], n_results=3)
         return self.llm.generate_answer(context=docs, prompt=student_prompt)`,
-      specs: ["Python / Django REST / FastAPI", "ChromaDB Vector Store", "WebSockets (Django Channels)", "Celery & Redis", "Docker on Azure VM"]
+      specs: ["Frontend: Flutter & Dart Mobile App", "Backend: Python, Django & DRF", "ChromaDB Vector Store", "Celery & Redis", "Docker on Azure VM"]
     },
     verifihire: {
       title: "VerifiHireAI — Enterprise AI Recruitment Platform",
       badge: "HRTech AI",
-      desc: "AI recruitment platform featuring automated resume screening via LLMs, ATS vector scoring, candidate ranking, async Celery file processing, and interactive recruiter dashboards built with React and TailwindCSS.",
-      code: `// VerifiHireAI Resume Screening & ATS Scorer
+      desc: "AI recruitment platform featuring React.js & TailwindCSS frontend and Python/Django REST Framework (DRF) backend. Includes automated resume screening via LLMs, ATS vector scoring, candidate ranking, and async Celery file processing.",
+      code: `// VerifiHireAI Resume Screening & ATS Scorer (Django REST Framework Backend)
 def process_candidate_resume(pdf_file, job_spec):
     parsed_metadata = nlp_parser.extract_skills(pdf_file)
     fit_score = ats_engine.calculate_cosine_fit(parsed_metadata, job_spec)
     return {"candidate": parsed_metadata.name, "score": fit_score}`,
-      specs: ["Python / Django / DRF", "React.js + TailwindCSS", "LLM Prompting & NLP", "Async Celery Pipeline", "Docker Containers"]
+      specs: ["Frontend: React.js & TailwindCSS", "Backend: Python, Django & DRF", "LLM Prompting & NLP", "Async Celery Pipeline", "Docker Containers"]
     },
     soulsupport: {
       title: "SoulSupport — Secure Human Emotional Support Platform",
       badge: "Mental Health SaaS",
-      desc: "Secure emotional wellbeing platform featuring encrypted 1-on-1 support conversations, strict multi-role JWT RBAC access control, admin diagnostic dashboards, and optimized PostgreSQL database queries.",
-      code: `// SoulSupport RBAC Access Controller
+      desc: "Secure emotional wellbeing platform featuring Flutter & Dart cross-platform mobile frontend and Python/Django REST Framework (DRF) backend. Includes encrypted 1-on-1 support conversations, strict multi-role JWT RBAC access control, and optimized PostgreSQL database queries.",
+      code: `// SoulSupport RBAC Access Controller (Django REST Framework Backend)
 class SecureConversationGuard(BasePermission):
     def has_object_permission(self, request, view, obj):
         return request.user.id in [obj.seeker_id, obj.support_member_id]`,
-      specs: ["Django REST Framework", "PostgreSQL Query Tuning", "JWT Auth & RBAC Guard", "Flutter Mobile API Integration", "Docker Azure VM"]
+      specs: ["Frontend: Flutter & Dart Mobile App", "Backend: Python, Django & DRF", "PostgreSQL Query Tuning", "JWT Auth & RBAC Guard", "Docker Azure VM"]
     }
   };
 
