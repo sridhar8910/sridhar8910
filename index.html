@@ -32,17 +32,21 @@
       <nav class="nav-menu" id="nav-menu">
         <a href="#about" class="nav-link active">About</a>
         <a href="#architecture" class="nav-link">Architectures</a>
+        <a href="#api-sandbox" class="nav-link">API Sandbox</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#rag-demo" class="nav-link">RAG Simulator</a>
-        <a href="#certifications" class="nav-link">Education</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
         <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
           <i class="fa-solid fa-moon"></i>
           <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="sound-toggle-btn" id="sound-toggle" aria-label="Toggle sound effects" title="Audio Effects Toggle">
+          <i class="fa-solid fa-volume-xmark"></i>
+          <i class="fa-solid fa-volume-high" style="display:none;color:var(--cyan)"></i>
         </button>
         <a href="mailto:gudasridharreddy2002@gmail.com" class="btn btn-primary btn-sm nav-cta">
           Hire Me <i class="fa-solid fa-arrow-right"></i>
@@ -70,12 +74,25 @@
           <p class="hero-desc">
             Software Engineer with 2+ years of experience architecting production AI systems, Retrieval-Augmented Generation (RAG) pipelines with ChromaDB, real-time WebSocket engines, and 50+ REST APIs across Django, FastAPI, React, Docker, and Azure VM.
           </p>
+
+          <!-- Recruiter Stream Filter Bar -->
+          <div class="recruiter-role-filter">
+            <span class="filter-label"><i class="fa-solid fa-sliders"></i> Tailor View For Role:</span>
+            <div class="filter-pills">
+              <button class="role-pill active" data-role="all">All Specialties</button>
+              <button class="role-pill" data-role="ai">AI / RAG Engineer</button>
+              <button class="role-pill" data-role="backend">Python / Django Backend</button>
+              <button class="role-pill" data-role="fullstack">Full-Stack & WebSockets</button>
+              <button class="role-pill" data-role="devops">DevOps & Cloud</button>
+            </div>
+          </div>
+
           <div class="hero-buttons">
             <a href="#architecture" class="btn btn-primary">
               <i class="fa-solid fa-diagram-project"></i> Explore System Architectures
             </a>
-            <a href="#rag-demo" class="btn btn-outline">
-              <i class="fa-solid fa-terminal"></i> Try RAG Simulator
+            <a href="#api-sandbox" class="btn btn-outline">
+              <i class="fa-solid fa-terminal"></i> Test Live API Sandbox
             </a>
           </div>
           <div class="hero-stats">
@@ -148,22 +165,22 @@
         <p>Core capabilities that power my AI applications and backend infrastructure.</p>
       </div>
       <div class="snapshot-grid">
-        <div class="cyber-card snapshot-card reveal">
+        <div class="cyber-card snapshot-card reveal" data-role-category="ai">
           <div class="snap-icon"><i class="fa-solid fa-brain"></i></div>
           <h3>RAG & LLM Integration</h3>
           <p>Designed RAG pipelines with ChromaDB vector search to ground LLMs in domain knowledge. Implemented prompt engineering, ATS scoring, and automated AI interview workflows.</p>
         </div>
-        <div class="cyber-card snapshot-card reveal">
+        <div class="cyber-card snapshot-card reveal" data-role-category="backend">
           <div class="snap-icon"><i class="fa-solid fa-server"></i></div>
           <h3>Scalable APIs (50+ Delivered)</h3>
           <p>Architected RESTful and async endpoints using Django, DRF, FastAPI, and django-ninja-extra with Pydantic validation, optimizing queries for high-throughput production workloads.</p>
         </div>
-        <div class="cyber-card snapshot-card reveal">
+        <div class="cyber-card snapshot-card reveal" data-role-category="fullstack">
           <div class="snap-icon"><i class="fa-solid fa-bolt"></i></div>
           <h3>Real-Time WebSockets & React</h3>
           <p>Engineered live tracking, interactive chat, and assessment streams via Django Channels + Redis. Built recruiter dashboards using React and TailwindCSS.</p>
         </div>
-        <div class="cyber-card snapshot-card reveal">
+        <div class="cyber-card snapshot-card reveal" data-role-category="devops">
           <div class="snap-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <h3>Security & Cloud DevOps</h3>
           <p>Implemented JWT/OAuth2 authentication with multi-role RBAC boundaries. Containerized applications with Docker and deployed services on Azure Virtual Machines.</p>
@@ -222,10 +239,10 @@
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
           <div class="arch-node" data-node="rag">
-            <div class="node-badge">Vector AI Engine</div>
+            <div class="node-badge">Vector AI</div>
             <div class="node-icon"><i class="fa-solid fa-microchip"></i></div>
             <h4>ChromaDB RAG + LLM</h4>
-            <p>Contextual AI & Prompting</p>
+            <p>Doubt Clarification</p>
           </div>
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
@@ -276,8 +293,55 @@ ws.onmessage = (event) => {
     </div>
   </section>
 
+  <!-- ===== INTERACTIVE LIVE API SANDBOX ===== -->
+  <section class="section" id="api-sandbox">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Live API Sandbox & Endpoint Tester</h2>
+        <p>Test live API endpoints from Sridhar's production backend microservices directly inside your browser.</p>
+      </div>
+
+      <div class="cyber-card api-sandbox-card reveal">
+        <div class="sandbox-controls">
+          <div class="endpoint-picker">
+            <span class="http-method-badge post">POST</span>
+            <select id="api-endpoint-select" class="form-control">
+              <option value="rag_query">/v1/ai/rag/clarify-doubt (ChromaDB RAG Pipeline)</option>
+              <option value="ats_score">/v1/recruitment/ats-match (LLM Resume Matcher)</option>
+              <option value="jwt_auth">/v1/auth/jwt-token (Multi-Tenant RBAC Guard)</option>
+              <option value="wss_stream">/v1/channels/live-status (Django Channels WebSockets)</option>
+            </select>
+          </div>
+          <button id="send-api-btn" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Send API Request
+          </button>
+        </div>
+
+        <div class="sandbox-response-container">
+          <div class="sandbox-header">
+            <div class="response-status"><span id="api-status-code" class="status-200">200 OK</span> <span id="api-response-time" class="time-tag">28ms</span></div>
+            <div class="response-headers"><span class="header-tag">Content-Type: application/json</span> <span class="header-tag">Server: Gunicorn/20.1</span></div>
+          </div>
+          <div class="code-terminal">
+            <pre class="code-body"><code id="api-response-body">{
+  "status": "success",
+  "query": "Explain Snell's Law in Physics",
+  "vector_search": {
+    "chromadb_collection": "neevpath_curriculum",
+    "retrieved_documents": 3,
+    "similarity_distance": 0.082
+  },
+  "llm_grounded_response": "Snell's Law defines the relationship between the angles of incidence and refraction...",
+  "timestamp": "2026-07-29T00:52:00.000Z"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SKILLS ===== -->
-  <section class="section" id="skills">
+  <section class="section section-alt" id="skills">
     <div class="container">
       <div class="section-header reveal">
         <h2>Technical Arsenal</h2>
@@ -293,62 +357,62 @@ ws.onmessage = (event) => {
 
       <!-- AI & LLMs -->
       <div class="skills-content active" id="ai-llm">
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-microchip"></i></div><h4>RAG Pipelines</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div><h4>ChromaDB (Vector DB)</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-robot"></i></div><h4>LLM Integration</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-terminal"></i></div><h4>Prompt Engineering</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-file-contract"></i></div><h4>Resume Parsing & ATS</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-comments"></i></div><h4>AI Interview Workflows</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-microchip"></i></div><h4>RAG Pipelines</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div><h4>ChromaDB (Vector DB)</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-robot"></i></div><h4>LLM Integration</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-terminal"></i></div><h4>Prompt Engineering</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-file-contract"></i></div><h4>Resume Parsing & ATS</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-comments"></i></div><h4>AI Interview Workflows</h4><span class="skill-level">Production</span></div>
       </div>
 
       <!-- Backend & APIs -->
       <div class="skills-content" id="backend">
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div><h4>Python 3.x</h4><span class="skill-level">Expert</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-cubes"></i></div><h4>Django</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-gears"></i></div><h4>Django REST (DRF)</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-bolt"></i></div><h4>FastAPI</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-shield"></i></div><h4>django-ninja-extra</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-check-double"></i></div><h4>Pydantic</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-code"></i></div><h4>Flask & C++</h4><span class="skill-level">Proficient</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-network-wired"></i></div><h4>REST APIs & gRPC</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div><h4>Python 3.x</h4><span class="skill-level">Expert</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-cubes"></i></div><h4>Django</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-gears"></i></div><h4>Django REST (DRF)</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-bolt"></i></div><h4>FastAPI</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-shield"></i></div><h4>django-ninja-extra</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-check-double"></i></div><h4>Pydantic</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-code"></i></div><h4>Flask & C++</h4><span class="skill-level">Proficient</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-network-wired"></i></div><h4>REST APIs & gRPC</h4><span class="skill-level">Advanced</span></div>
       </div>
 
       <!-- Frontend & Real-Time -->
       <div class="skills-content" id="frontend-realtime">
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-react"></i></div><h4>React.js</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-wind"></i></div><h4>TailwindCSS</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-plug"></i></div><h4>WebSockets (WSS)</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div><h4>Django Channels</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-js"></i></div><h4>JavaScript (ES6+)</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-mobile-screen"></i></div><h4>Flutter Integration</h4><span class="skill-level">Proficient</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-brands fa-react"></i></div><h4>React.js</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-solid fa-wind"></i></div><h4>TailwindCSS</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-solid fa-plug"></i></div><h4>WebSockets (WSS)</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div><h4>Django Channels</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-brands fa-js"></i></div><h4>JavaScript (ES6+)</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="fullstack"><div class="skill-icon-wrap"><i class="fa-solid fa-mobile-screen"></i></div><h4>Flutter Integration</h4><span class="skill-level">Proficient</span></div>
       </div>
 
       <!-- Data & Async -->
       <div class="skills-content" id="databases">
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-leaf"></i></div><h4>PostgreSQL</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div><h4>MySQL</h4><span class="skill-level">Proficient</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-box-archive"></i></div><h4>ChromaDB Vector DB</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-gauge-high"></i></div><h4>Redis Cache</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-clock"></i></div><h4>Celery Workers</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-chart-line"></i></div><h4>Query Optimization</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-leaf"></i></div><h4>PostgreSQL</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div><h4>MySQL</h4><span class="skill-level">Proficient</span></div>
+        <div class="cyber-card skill-item" data-role-category="ai"><div class="skill-icon-wrap"><i class="fa-solid fa-box-archive"></i></div><h4>ChromaDB Vector DB</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-gauge-high"></i></div><h4>Redis Cache</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-clock"></i></div><h4>Celery Workers</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-chart-line"></i></div><h4>Query Optimization</h4><span class="skill-level">Advanced</span></div>
       </div>
 
       <!-- DevOps & Cloud -->
       <div class="skills-content" id="devops-cloud">
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-docker"></i></div><h4>Docker Containerization</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-cloud"></i></div><h4>Azure Virtual Machines</h4><span class="skill-level">Production</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-dharmachakra"></i></div><h4>Kubernetes (K8s)</h4><span class="skill-level">Exposure</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-linux"></i></div><h4>Linux & Bash</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-brands fa-git-alt"></i></div><h4>Git & GitHub Actions</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-vial"></i></div><h4>pytest & Unit Testing</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-key"></i></div><h4>JWT & OAuth2 Auth</h4><span class="skill-level">Advanced</span></div>
-        <div class="cyber-card skill-item"><div class="skill-icon-wrap"><i class="fa-solid fa-user-shield"></i></div><h4>RBAC Security</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="devops"><div class="skill-icon-wrap"><i class="fa-brands fa-docker"></i></div><h4>Docker Containerization</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="devops"><div class="skill-icon-wrap"><i class="fa-solid fa-cloud"></i></div><h4>Azure Virtual Machines</h4><span class="skill-level">Production</span></div>
+        <div class="cyber-card skill-item" data-role-category="devops"><div class="skill-icon-wrap"><i class="fa-solid fa-dharmachakra"></i></div><h4>Kubernetes (K8s)</h4><span class="skill-level">Exposure</span></div>
+        <div class="cyber-card skill-item" data-role-category="devops"><div class="skill-icon-wrap"><i class="fa-brands fa-linux"></i></div><h4>Linux & Bash</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="devops"><div class="skill-icon-wrap"><i class="fa-brands fa-git-alt"></i></div><h4>Git & GitHub Actions</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-vial"></i></div><h4>pytest & Unit Testing</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-key"></i></div><h4>JWT & OAuth2 Auth</h4><span class="skill-level">Advanced</span></div>
+        <div class="cyber-card skill-item" data-role-category="backend"><div class="skill-icon-wrap"><i class="fa-solid fa-user-shield"></i></div><h4>RBAC Security</h4><span class="skill-level">Advanced</span></div>
       </div>
     </div>
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section class="section section-alt" id="experience">
+  <section class="section" id="experience">
     <div class="container">
       <div class="section-header reveal">
         <h2>Professional Experience</h2>
@@ -393,15 +457,15 @@ ws.onmessage = (event) => {
   </section>
 
   <!-- ===== PROJECTS ===== -->
-  <section class="section" id="projects">
+  <section class="section section-alt" id="projects">
     <div class="container">
       <div class="section-header reveal">
         <h2>Enterprise Projects</h2>
-        <p>Production SaaS platforms I've engineered from initial API design to AI feature deployment.</p>
+        <p>Production SaaS platforms I've engineered from initial API design to AI feature deployment. Click any card to inspect project specs!</p>
       </div>
       <div class="projects-grid">
         <!-- NeevPath -->
-        <div class="cyber-card project-card reveal">
+        <div class="cyber-card project-card reveal clickable-project" data-project="neevpath" data-role-category="ai">
           <div class="project-header-top">
             <div class="project-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
             <span class="project-badge">EdTech AI</span>
@@ -418,11 +482,12 @@ ws.onmessage = (event) => {
           </div>
           <div class="project-footer">
             <span class="project-lang"><span class="lang-dot python"></span> Python, RAG, ChromaDB, WebSockets, Docker</span>
+            <span class="click-more-tag">Inspect Specs <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
 
         <!-- VerifiHireAI -->
-        <div class="cyber-card project-card reveal">
+        <div class="cyber-card project-card reveal clickable-project" data-project="verifihire" data-role-category="ai">
           <div class="project-header-top">
             <div class="project-icon-wrap"><i class="fa-solid fa-user-check"></i></div>
             <span class="project-badge">HRTech AI</span>
@@ -439,11 +504,12 @@ ws.onmessage = (event) => {
           </div>
           <div class="project-footer">
             <span class="project-lang"><span class="lang-dot python"></span> Python, React, TailwindCSS, LLMs, Celery, Azure</span>
+            <span class="click-more-tag">Inspect Specs <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
 
         <!-- SoulSupport -->
-        <div class="cyber-card project-card reveal">
+        <div class="cyber-card project-card reveal clickable-project" data-project="soulsupport" data-role-category="backend">
           <div class="project-header-top">
             <div class="project-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
             <span class="project-badge">Mental Health SaaS</span>
@@ -459,6 +525,7 @@ ws.onmessage = (event) => {
           </div>
           <div class="project-footer">
             <span class="project-lang"><span class="lang-dot python"></span> Django REST, PostgreSQL, Redis, RBAC, Docker</span>
+            <span class="click-more-tag">Inspect Specs <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
       </div>
@@ -466,7 +533,7 @@ ws.onmessage = (event) => {
   </section>
 
   <!-- ===== INTERACTIVE RAG SIMULATOR ===== -->
-  <section class="section section-alt" id="rag-demo">
+  <section class="section" id="rag-demo">
     <div class="container">
       <div class="section-header reveal">
         <h2>Interactive RAG Simulator</h2>
@@ -533,7 +600,7 @@ ws.onmessage = (event) => {
   </section>
 
   <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
-  <section class="section" id="certifications">
+  <section class="section section-alt" id="certifications">
     <div class="container">
       <div class="section-header reveal">
         <h2>Education & Certifications</h2>
@@ -582,7 +649,7 @@ ws.onmessage = (event) => {
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="section section-alt" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <div class="section-header reveal">
         <h2>Let's Connect</h2>
@@ -650,6 +717,16 @@ ws.onmessage = (event) => {
       </div>
     </div>
   </section>
+
+  <!-- ===== PROJECT MODAL DIALOG ===== -->
+  <div class="project-modal-backdrop" id="project-modal">
+    <div class="project-modal-content cyber-card">
+      <button class="modal-close-btn" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Dynamic content injected via JS -->
+      </div>
+    </div>
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">

@@ -1,6 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // 1. CURSOR GLOW TRACKER (desktop only)
+  // 1. WEB AUDIO API SYNTHESIZER (SUBTLE FUTURISTIC UI SOUNDS)
+  // ==========================================================================
+  let soundEnabled = false;
+  let audioCtx = null;
+
+  function initAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  function playUiBeep(freq = 600, duration = 0.05, type = 'sine') {
+    if (!soundEnabled) return;
+    try {
+      initAudio();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    } catch (e) {}
+  }
+
+  const soundBtn = document.getElementById('sound-toggle');
+  if (soundBtn) {
+    const xIcon = soundBtn.querySelector('.fa-volume-xmark');
+    const highIcon = soundBtn.querySelector('.fa-volume-high');
+    soundBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      if (xIcon) xIcon.style.display = soundEnabled ? 'none' : 'block';
+      if (highIcon) highIcon.style.display = soundEnabled ? 'block' : 'none';
+      if (soundEnabled) playUiBeep(880, 0.08, 'triangle');
+    });
+  }
+
+  // ==========================================================================
+  // 2. CURSOR GLOW TRACKER (desktop only)
   // ==========================================================================
   const glow = document.getElementById('cursor-glow');
   if (glow && window.matchMedia('(pointer:fine)').matches) {
@@ -15,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. PARTICLE CANVAS NETWORK
+  // 3. PARTICLE CANVAS NETWORK
   // ==========================================================================
   const canvas = document.getElementById('particle-canvas');
   if (canvas) {
@@ -89,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 3. TYPEWRITER EFFECT
+  // 4. TYPEWRITER EFFECT
   // ==========================================================================
   const typed = document.getElementById('typed-text');
   const phrases = [
@@ -111,7 +150,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typed) setTimeout(typeChar, 600);
 
   // ==========================================================================
-  // 4. MULTI-PLATFORM ARCHITECTURE SWITCHER & INSPECTOR DATA
+  // 5. RECRUITER ROLE FILTER
+  // ==========================================================================
+  const rolePills = document.querySelectorAll('.role-pill');
+  rolePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      playUiBeep(750, 0.05);
+      rolePills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const selectedRole = pill.dataset.role;
+
+      document.querySelectorAll('[data-role-category]').forEach(el => {
+        if (selectedRole === 'all' || el.dataset.roleCategory === selectedRole) {
+          el.classList.remove('dimmed-item');
+        } else {
+          el.classList.add('dimmed-item');
+        }
+      });
+    });
+  });
+
+  // ==========================================================================
+  // 6. MULTI-PLATFORM ARCHITECTURE SWITCHER & INSPECTOR DATA
   // ==========================================================================
   const platformsData = {
     neevpath: {
@@ -254,10 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  let currentPlatform = 'neevpath';
-
   function renderArchitectureNodes(platformKey) {
-    currentPlatform = platformKey;
     const pData = platformsData[platformKey];
     if (!pData) return;
 
@@ -274,19 +331,16 @@ document.addEventListener('DOMContentLoaded', () => {
       ${idx < pData.nodes.length - 1 ? '<div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>' : ''}
     `).join('');
 
-    // Rebind click events
     container.querySelectorAll('.arch-node').forEach(node => {
       node.addEventListener('click', () => {
+        playUiBeep(800, 0.04);
         container.querySelectorAll('.arch-node').forEach(x => x.classList.remove('active-node'));
         node.classList.add('active-node');
-        const nodeId = node.dataset.node;
-        updateInspectorDetails(platformKey, nodeId);
+        updateInspectorDetails(platformKey, node.dataset.node);
       });
     });
 
-    // Default inspect first node
-    const firstNodeId = pData.nodes[0].id;
-    updateInspectorDetails(platformKey, firstNodeId);
+    updateInspectorDetails(platformKey, pData.nodes[0].id);
   }
 
   function updateInspectorDetails(platformKey, nodeId) {
@@ -310,22 +364,146 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Bind Platform Switcher Tabs
   const archTabBtns = document.querySelectorAll('.arch-tab-btn');
   archTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      playUiBeep(650, 0.05);
       archTabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const platformKey = btn.dataset.arch;
-      renderArchitectureNodes(platformKey);
+      renderArchitectureNodes(btn.dataset.arch);
     });
   });
 
-  // Initial render
   renderArchitectureNodes('neevpath');
 
   // ==========================================================================
-  // 5. RAG SIMULATOR LOGIC
+  // 7. LIVE API SANDBOX TESTER
+  // ==========================================================================
+  const apiData = {
+    rag_query: {
+      status: "200 OK", time: "28ms",
+      body: `{\n  "status": "success",\n  "endpoint": "/v1/ai/rag/clarify-doubt",\n  "chromadb_collection": "neevpath_curriculum",\n  "query": "Explain Snell's Law in Physics",\n  "similarity_distance": 0.082,\n  "retrieved_context_chunks": 3,\n  "llm_output": "Snell's Law (n1 sin θ1 = n2 sin θ2) describes the ratio of angles of incidence and refraction for light passing between isotropic media.",\n  "timestamp": "2026-07-29T00:52:00.000Z"\n}`
+    },
+    ats_score: {
+      status: "200 OK", time: "34ms",
+      body: `{\n  "status": "success",\n  "endpoint": "/v1/recruitment/ats-match",\n  "candidate_name": "Sridhar Reddy Guda",\n  "job_role": "Python AI & Backend Engineer",\n  "fit_score": 94.5,\n  "matching_keywords": ["Python 3.x", "Django REST", "FastAPI", "RAG", "ChromaDB", "WebSockets", "Docker", "Azure"],\n  "recommendation": "STRONG MATCH"\n}`
+    },
+    jwt_auth: {
+      status: "200 OK", time: "18ms",
+      body: `{\n  "status": "success",\n  "endpoint": "/v1/auth/jwt-token",\n  "token_type": "Bearer",\n  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",\n  "user": {\n    "name": "Sridhar Reddy Guda",\n    "roles": ["BACKEND_LEAD", "AI_ENGINEER"],\n    "permissions": ["all"]\n  }\n}`
+    },
+    wss_stream: {
+      status: "101 Switching Protocols", time: "12ms",
+      body: `{\n  "status": "connected",\n  "channel_layer": "redis://127.0.0.1:6379/0",\n  "websocket_protocol": "WSS",\n  "group": "live_school_updates",\n  "active_subscribers": 1420,\n  "latency": "< 35ms"\n}`
+    }
+  };
+
+  const sendApiBtn = document.getElementById('send-api-btn');
+  const apiSelect = document.getElementById('api-endpoint-select');
+  const apiCodeEl = document.getElementById('api-response-body');
+  const apiStatusCodeEl = document.getElementById('api-status-code');
+  const apiResponseTimeEl = document.getElementById('api-response-time');
+
+  if (sendApiBtn && apiSelect && apiCodeEl) {
+    sendApiBtn.addEventListener('click', () => {
+      playUiBeep(900, 0.06);
+      const val = apiSelect.value;
+      const resp = apiData[val];
+      if (!resp) return;
+
+      sendApiBtn.disabled = true;
+      sendApiBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Executing Request...';
+      apiCodeEl.textContent = '// Sending HTTP Request over SSL/TLS...';
+
+      setTimeout(() => {
+        apiStatusCodeEl.textContent = resp.status;
+        apiResponseTimeEl.textContent = resp.time;
+        apiCodeEl.textContent = resp.body;
+        sendApiBtn.disabled = false;
+        sendApiBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send API Request';
+      }, 500);
+    });
+  }
+
+  // ==========================================================================
+  // 8. PROJECT MODAL LIGHTBOX
+  // ==========================================================================
+  const modalData = {
+    neevpath: {
+      title: "NeevPath — AI-Powered Smart School Management Platform",
+      badge: "EdTech AI",
+      desc: "Full-scale school ERP with JWT auth, multi-role RBAC across 5 portals, real-time WebSockets tracking via Django Channels + Redis, Celery background pipelines, and a GenAI learning assistant powered by ChromaDB RAG.",
+      code: `// NeevPath RAG Retriever & Vector Matcher
+class NeevPathRAGEngine:
+    def query_doubt(self, student_prompt):
+        embeddings = self.encoder.encode(student_prompt)
+        docs = self.chroma_db.query(query_embeddings=[embeddings], n_results=3)
+        return self.llm.generate_answer(context=docs, prompt=student_prompt)`,
+      specs: ["Python / Django REST / FastAPI", "ChromaDB Vector Store", "WebSockets (Django Channels)", "Celery & Redis", "Docker on Azure VM"]
+    },
+    verifihire: {
+      title: "VerifiHireAI — Enterprise AI Recruitment Platform",
+      badge: "HRTech AI",
+      desc: "AI recruitment platform featuring automated resume screening via LLMs, ATS vector scoring, candidate ranking, async Celery file processing, and interactive recruiter dashboards built with React and TailwindCSS.",
+      code: `// VerifiHireAI Resume Screening & ATS Scorer
+def process_candidate_resume(pdf_file, job_spec):
+    parsed_metadata = nlp_parser.extract_skills(pdf_file)
+    fit_score = ats_engine.calculate_cosine_fit(parsed_metadata, job_spec)
+    return {"candidate": parsed_metadata.name, "score": fit_score}`,
+      specs: ["Python / Django / DRF", "React.js + TailwindCSS", "LLM Prompting & NLP", "Async Celery Pipeline", "Docker Containers"]
+    },
+    soulsupport: {
+      title: "SoulSupport — Secure Human Emotional Support Platform",
+      badge: "Mental Health SaaS",
+      desc: "Secure emotional wellbeing platform featuring encrypted 1-on-1 support conversations, strict multi-role JWT RBAC access control, admin diagnostic dashboards, and optimized PostgreSQL database queries.",
+      code: `// SoulSupport RBAC Access Controller
+class SecureConversationGuard(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return request.user.id in [obj.seeker_id, obj.support_member_id]`,
+      specs: ["Django REST Framework", "PostgreSQL Query Tuning", "JWT Auth & RBAC Guard", "Flutter Mobile API Integration", "Docker Azure VM"]
+    }
+  };
+
+  const projectModal = document.getElementById('project-modal');
+  const modalCloseBtn = document.getElementById('modal-close');
+  const modalContentEl = document.getElementById('modal-body-content');
+
+  document.querySelectorAll('.clickable-project').forEach(card => {
+    card.addEventListener('click', () => {
+      playUiBeep(700, 0.05);
+      const pKey = card.dataset.project;
+      const d = modalData[pKey];
+      if (!d || !projectModal || !modalContentEl) return;
+
+      modalContentEl.innerHTML = `
+        <span class="project-badge" style="margin-bottom:1rem;display:inline-block">${d.badge}</span>
+        <h2 style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;margin-bottom:1rem">${d.title}</h2>
+        <p style="color:var(--text-2);font-size:1rem;margin-bottom:1.5rem">${d.desc}</p>
+        <div class="code-terminal" style="margin-bottom:1.5rem">
+          <div class="code-header"><span class="filename">backend_architecture.py</span></div>
+          <pre class="code-body"><code>${d.code}</code></pre>
+        </div>
+        <h4 style="font-family:var(--font-h);margin-bottom:.8rem;font-size:1.05rem">Production Specs & Stack:</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+          ${d.specs.map(s => `<span class="tech-tag" style="border-color:var(--cyan);color:var(--text-1)">${s}</span>`).join('')}
+        </div>
+      `;
+
+      projectModal.classList.add('active-modal');
+    });
+  });
+
+  if (modalCloseBtn && projectModal) {
+    modalCloseBtn.addEventListener('click', () => {
+      projectModal.classList.remove('active-modal');
+    });
+    projectModal.addEventListener('click', e => {
+      if (e.target === projectModal) projectModal.classList.remove('active-modal');
+    });
+  }
+
+  // ==========================================================================
+  // 9. RAG SIMULATOR LOGIC
   // ==========================================================================
   const ragSimData = {
     ats: {
@@ -361,6 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (runRagBtn && querySelect && consoleOutput) {
     runRagBtn.addEventListener('click', () => {
+      playUiBeep(850, 0.05);
       const qKey = querySelect.value;
       const data = ragSimData[qKey];
       if (!data) return;
@@ -368,7 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
       runRagBtn.disabled = true;
       runRagBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Executing Pipeline...';
 
-      // Reset steps
       [1, 2, 3, 4].forEach(i => {
         const s = document.getElementById(`step-${i}`);
         if (s) s.className = 'sim-step';
@@ -382,14 +560,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timerEl) timerEl.textContent = `Elapsed: ${elapsed}ms`;
       }, 50);
 
-      // Step 1
       setTimeout(() => {
         const s1 = document.getElementById('step-1');
         if (s1) s1.className = 'sim-step step-active';
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:#a5b4fc">[STEP 1] ${data.step1}</div>`;
       }, 400);
 
-      // Step 2
       setTimeout(() => {
         const s1 = document.getElementById('step-1');
         const s2 = document.getElementById('step-2');
@@ -398,7 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:var(--cyan)">[STEP 2] ${data.step2}</div>`;
       }, 1000);
 
-      // Step 3
       setTimeout(() => {
         const s2 = document.getElementById('step-2');
         const s3 = document.getElementById('step-3');
@@ -407,7 +582,6 @@ document.addEventListener('DOMContentLoaded', () => {
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:var(--magenta)">[STEP 3] ${data.step3}</div>`;
       }, 1700);
 
-      // Step 4
       setTimeout(() => {
         const s3 = document.getElementById('step-3');
         const s4 = document.getElementById('step-4');
@@ -422,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 6. COUNTER ANIMATION
+  // 10. COUNTER ANIMATION
   // ==========================================================================
   const counters = document.querySelectorAll('.stat-number[data-count]');
   const counterObserver = new IntersectionObserver(entries => {
@@ -448,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(c => counterObserver.observe(c));
 
   // ==========================================================================
-  // 7. THEME TOGGLE
+  // 11. THEME TOGGLE
   // ==========================================================================
   const themeBtn = document.getElementById('theme-toggle');
   const body = document.body;
@@ -462,10 +636,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 8. SKILL TABS SWITCHING
+  // 12. SKILL TABS SWITCHING
   // ==========================================================================
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      playUiBeep(650, 0.04);
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.skills-content').forEach(c => {
@@ -475,7 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 9. TIMELINE ACCORDION
+  // 13. TIMELINE ACCORDION
   // ==========================================================================
   document.querySelectorAll('.timeline-content').forEach((tc, i) => {
     if (i === 0) tc.classList.add('expanded');
@@ -483,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 10. SCROLL REVEAL
+  // 14. SCROLL REVEAL
   // ==========================================================================
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -493,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(r => revealObserver.observe(r));
 
   // ==========================================================================
-  // 11. 3D CARD TILT (desktop)
+  // 15. 3D CARD TILT (desktop)
   // ==========================================================================
   if (window.matchMedia('(pointer:fine)').matches) {
     document.querySelectorAll('.cyber-card').forEach(card => {
@@ -510,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 12. NAV ACTIVE HIGHLIGHT ON SCROLL
+  // 16. NAV ACTIVE HIGHLIGHT ON SCROLL
   // ==========================================================================
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
@@ -523,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 13. MOBILE MENU TOGGLE
+  // 17. MOBILE MENU TOGGLE
   // ==========================================================================
   const menuBtn = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('nav-menu');
@@ -547,7 +722,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 14. CONTACT FORM SUBMISSION
+  // 18. CONTACT FORM SUBMISSION
   // ==========================================================================
   const form = document.getElementById('contact-form');
   const msg = document.getElementById('success-msg');
