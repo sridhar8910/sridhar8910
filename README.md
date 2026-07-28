@@ -1,11 +1,9 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:020617,35:00f2fe,70:7c3aed,100:db00ff&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=42&fontAlignY=36&desc=AI%20Developer%20%7C%20Python%20%26%20Django/DRF%20Backend%20%7C%20Flutter%20%26%20React&descAlignY=58&descSize=16" alt="Sridhar Reddy Guda Header" />
-</p>
-
-<h1 align="center">⚡ Sridhar Reddy Guda</h1>
+<h1 align="center">
+  ⚡ Sridhar Reddy Guda
+</h1>
 
 <p align="center">
-  <b>Software Engineer with 2+ Years of Production Experience</b><br />
+  <b>AI Developer & Python Backend Engineer</b><br />
   Specializing in <b>AI / RAG Systems (ChromaDB)</b>, <b>50+ REST APIs (Python & Django REST Framework)</b>, <b>Flutter & Dart Mobile Frontends</b>, <b>React & Tailwind Web UI</b>, and <b>Cloud DevOps (Docker & Azure VM)</b>.
 </p>
 
@@ -179,5 +177,5 @@ Docker & Azure VM          [██████████████      ] 82
 
 <p align="center">
   <b>🌐 Interactive Web Portfolio: <a href="https://sridhar8910.github.io/">sridhar8910.github.io</a></b><br />
-  Designed & Engineered by Sridhar Reddy Guda
+  Engineered with ❤️ by Sridhar Reddy Guda using Python, Django REST Framework (DRF), RAG, Flutter & React.
 </p>
