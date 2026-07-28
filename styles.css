@@ -543,7 +543,8 @@ body::before {
   background: rgba(0,242,254,.08); color: var(--cyan); border: 1px solid rgba(0,242,254,.2);
   padding: .3rem .8rem; border-radius: 100px; font-size: .78rem; font-weight: 700; font-family: var(--font-mono);
 }
-.project-card h3 { font-family: var(--font-h); font-size: 1.25rem; font-weight: 700; margin-bottom: .6rem; }
+.project-card h3 { font-family: var(--font-h); font-size: 1.25rem; font-weight: 700; margin-bottom: .2rem; }
+.project-tagline { font-style: italic; font-size: .85rem; color: var(--cyan); font-weight: 600; margin-bottom: .8rem; display: flex; align-items: center; gap: .4rem; }
 .project-summary { color: var(--text-2); font-size: .92rem; margin-bottom: 1.2rem; }
 .project-highlights { flex-grow: 1; margin-bottom: 1.5rem; }
 .project-highlights ul { display: flex; flex-direction: column; gap: .6rem; }

@@ -430,7 +430,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const modalData = {
     neevpath: {
-      title: "NeevPath — AI-Powered Smart School Management Platform",
+      title: "NeevPath — Smart School Management Platform",
+      tagline: "Where Education Evolves Digitally",
       badge: "EdTech AI",
       desc: "Full-scale school ERP with Flutter & Dart cross-platform mobile frontend and Python/Django REST Framework (DRF) backend. Includes JWT auth, multi-role RBAC across 5 portals, Celery background pipelines, and a GenAI learning assistant powered by ChromaDB RAG.",
       code: `// NeevPath RAG Retriever & Vector Matcher (Django REST Framework Backend)
@@ -443,6 +444,7 @@ class NeevPathRAGEngine:
     },
     verifihire: {
       title: "VerifiHireAI — Enterprise AI Recruitment Platform",
+      tagline: "Trust in Every Hire",
       badge: "HRTech AI",
       desc: "AI recruitment platform featuring React.js & TailwindCSS frontend and Python/Django REST Framework (DRF) backend. Includes automated resume screening via LLMs, ATS vector scoring, candidate ranking, and async Celery file processing.",
       code: `// VerifiHireAI Resume Screening & ATS Scorer (Django REST Framework Backend)
@@ -453,7 +455,8 @@ def process_candidate_resume(pdf_file, job_spec):
       specs: ["Frontend: React.js & TailwindCSS", "Backend: Python, Django & DRF", "LLM Prompting & NLP", "Async Celery Pipeline", "Docker Containers"]
     },
     soulsupport: {
-      title: "SoulSupport — Secure Human Emotional Support Platform",
+      title: "SoulSupport — Human Emotional Support Platform",
+      tagline: "You're Not Alone",
       badge: "Mental Health SaaS",
       desc: "Secure emotional wellbeing platform featuring Flutter & Dart cross-platform mobile frontend and Python/Django REST Framework (DRF) backend. Includes encrypted 1-on-1 support conversations, strict multi-role JWT RBAC access control, and optimized PostgreSQL database queries.",
       code: `// SoulSupport RBAC Access Controller (Django REST Framework Backend)
@@ -476,8 +479,9 @@ class SecureConversationGuard(BasePermission):
       if (!d || !projectModal || !modalContentEl) return;
 
       modalContentEl.innerHTML = `
-        <span class="project-badge" style="margin-bottom:1rem;display:inline-block">${d.badge}</span>
-        <h2 style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;margin-bottom:1rem">${d.title}</h2>
+        <span class="project-badge" style="margin-bottom:.8rem;display:inline-block">${d.badge}</span>
+        <h2 style="font-family:var(--font-h);font-size:1.5rem;font-weight:800;margin-bottom:.2rem">${d.title}</h2>
+        <div style="font-style:italic;color:var(--cyan);font-size:.92rem;font-weight:600;margin-bottom:1.2rem"><i class="fa-solid fa-quote-left"></i> "${d.tagline}"</div>
         <p style="color:var(--text-2);font-size:1rem;margin-bottom:1.5rem">${d.desc}</p>
         <div class="code-terminal" style="margin-bottom:1.5rem">
           <div class="code-header"><span class="filename">backend_architecture.py</span></div>

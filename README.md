@@ -117,11 +117,11 @@ flowchart LR
 
 ## 🌟 Featured Enterprise Projects
 
-| Project | Domain | Frontend | Backend & Storage | Impact & Highlights |
+| Project & Official Tagline | Domain | Frontend | Backend & Storage | Impact & Highlights |
 | :--- | :--- | :--- | :--- | :--- |
-| **NeevPath** | EdTech AI | `Flutter & Dart` | `Python` `Django REST (DRF)` `RAG` `ChromaDB` `Docker` `Azure` | Built Flutter mobile app & ChromaDB RAG pipeline for AI doubt clarification. |
-| **VerifiHireAI** | HRTech AI | `React.js & Tailwind` | `Python` `Django REST (DRF)` `LLMs` `Celery` `Docker` `Azure` | Built React web dashboard & LLM automated interview bot. |
-| **SoulSupport** | Mental Health | `Flutter & Dart` | `Python` `Django REST (DRF)` `PostgreSQL` `JWT` `RBAC` `Docker` | Built Flutter mobile app & secure encrypted messaging with strict RBAC boundaries. |
+| **NeevPath**<br />*"Where Education Evolves Digitally"* | EdTech AI | `Flutter & Dart` | `Python` `Django REST (DRF)` `RAG` `ChromaDB` `Docker` `Azure` | Built Flutter mobile app & ChromaDB RAG pipeline for AI doubt clarification. |
+| **VerifiHireAI**<br />*"Trust in Every Hire"* | HRTech AI | `React.js & Tailwind` | `Python` `Django REST (DRF)` `LLMs` `Celery` `Docker` `Azure` | Built React web dashboard & LLM automated interview bot. |
+| **SoulSupport**<br />*"You're Not Alone"* | Mental Health | `Flutter & Dart` | `Python` `Django REST (DRF)` `PostgreSQL` `JWT` `RBAC` `Docker` | Built Flutter mobile app & secure encrypted messaging with strict RBAC boundaries. |
 
 ---
 
