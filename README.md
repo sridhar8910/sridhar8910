@@ -1,18 +1,17 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:020617,25:00f2fe,50:7c3aed,75:db00ff,100:020617&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=46&fontAlignY=34&desc=AI%20Developer%20%7C%20Python%20Backend%20Engineer%20%7C%20Full-Stack%20WebSockets%20%7C%20Cloud%20DevOps&descAlignY=56&descSize=16" alt="Sridhar Reddy Guda Header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:020617,35:00f2fe,70:7c3aed,100:db00ff&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=42&fontAlignY=36&desc=AI%20Developer%20%7C%20Python%20%26%20Django/FastAPI%20Backend%20%7C%20RAG%20%26%20ChromaDB&descAlignY=58&descSize=16" alt="Sridhar Reddy Guda Header" />
 </p>
 
 <h1 align="center">⚡ Sridhar Reddy Guda</h1>
 
 <p align="center">
-  <b>Software Engineer with 2+ Years of Production Experience</b>
-  <br />
+  <b>Software Engineer with 2+ Years of Production Experience</b><br />
   Specializing in <b>AI / RAG Systems (ChromaDB)</b>, <b>50+ Scalable REST APIs (Django / DRF / FastAPI)</b>, <b>Real-Time WebSockets & React UI</b>, and <b>Cloud DevOps (Docker & Azure VM)</b>.
 </p>
 
 <p align="center">
   <a href="https://sridhar8910.github.io/">
-    <img src="https://img.shields.io/badge/🌐_Interactive_Portfolio-sridhar8910.github.io-00f2fe?style=for-the-badge&logoColor=white" alt="Live Portfolio Website" />
+    <img src="https://img.shields.io/badge/🌐_Portfolio-sridhar8910.github.io-00f2fe?style=for-the-badge&logoColor=white" alt="Live Portfolio Website" />
   </a>
   <a href="mailto:gudasridharreddy2002@gmail.com">
     <img src="https://img.shields.io/badge/Email-gudasridharreddy2002%40gmail.com-ef4444?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
@@ -21,13 +20,17 @@
     <img src="https://img.shields.io/badge/Phone-+91_8106707735-10b981?style=for-the-badge&logo=phone&logoColor=white" alt="Phone" />
   </a>
   <a href="https://linkedin.com/in/sridhar-reddy-guda-161a7b223">
-    <img src="https://img.shields.io/badge/LinkedIn-Sridhar%20Reddy%20Guda-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-Sridhar_Reddy_Guda-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <img src="https://komarev.com/ghpvc/?username=sridhar8910&style=for-the-badge&color=7c3aed" alt="Profile views" />
 </p>
 
+---
+
+## 🐍 Contribution Grid Snake Game
+
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1200&color=00F2FE&center=true&vCenter=true&width=920&lines=🤖+AI+%26+LLM+Engineer:+RAG+Pipelines+%2B+ChromaDB+Vector+DB;🐍+Python+Backend+Developer:+Django+%2B+DRF+%2B+FastAPI+%2B+Pydantic;⚡+Full-Stack+WebSockets:+React.js+%2B+TailwindCSS+%2B+Django+Channels;☁️+Cloud+DevOps:+Docker+Containers+%2B+Azure+VMs+%2B+pytest+CI%2FCD" alt="Typing SVG" />
+  <img src="https://raw.githubusercontent.com/sridhar8910/sridhar8910/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Grid Snake Game" width="100%" />
 </p>
 
 ---
@@ -202,20 +205,7 @@ flowchart TD
 
 ---
 
-## 📊 GitHub Analytics & Activity
-
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sridhar8910&show_icons=true&theme=cyberpunk&hide_border=true&count_private=true" alt="Sridhar's GitHub Stats" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sridhar8910&layout=compact&theme=cyberpunk&hide_border=true&langs_count=8" alt="Top Languages" width="48%" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sridhar8910&theme=cyberpunk&hide_border=true" alt="GitHub Streak" />
-</p>
-
----
-
-<p align="center">
-  <b>🌐 Interactive Portfolio: <a href="https://sridhar8910.github.io/">sridhar8910.github.io</a></b><br />
-  Designed & Built with ❤️ by Sridhar Reddy Guda
+  <b>🌐 Interactive Web Portfolio: <a href="https://sridhar8910.github.io/">sridhar8910.github.io</a></b><br />
+  Designed & Engineered by Sridhar Reddy Guda
 </p>
