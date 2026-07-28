@@ -27,6 +27,14 @@
 
 ---
 
+## 📊 GitHub Contribution Heatmap (Last Year Activity)
+
+<p align="center">
+  <img src="https://ghchart.rshah.org/00f2fe/sridhar8910" alt="Sridhar Reddy Guda GitHub Contribution Map" width="100%" />
+</p>
+
+---
+
 ## 🐍 Contribution Grid Snake Game
 
 <p align="center">
