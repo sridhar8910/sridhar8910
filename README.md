@@ -27,22 +27,6 @@
 
 ---
 
-## 📊 GitHub Contribution Heatmap (Last Year Activity)
-
-<p align="center">
-  <img src="https://ghchart.rshah.org/00f2fe/sridhar8910" alt="Sridhar Reddy Guda GitHub Contribution Map" width="100%" />
-</p>
-
----
-
-## 🐍 Contribution Grid Snake Game
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sridhar8910/sridhar8910/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Grid Snake Game" width="100%" />
-</p>
-
----
-
 ## 🎯 Recruiter Quick-Navigation Matrix (Select Your Hiring Stream)
 
 Choose your relevant domain below to view custom engineering highlights, metrics, and production proof:
@@ -210,6 +194,60 @@ flowchart TD
 - 📜 **SQL (Basic & Intermediate)** — *HackerRank Verified Certification*
 - 🐍 **Python Basic Certification** — *HackerRank Verified Certification*
 - 💻 **Complete Python Bootcamp & Scientific Research** — *Udemy Advanced Credentials*
+
+---
+
+## 📈 Engineering Performance & Skill Distribution Graphs
+
+### 1. Codebase & Skill Distribution Pie Chart
+
+```mermaid
+pie title Production Engineering & Technology Distribution
+    "Python & Backend APIs (Django/FastAPI)" : 40
+    "AI & RAG Pipelines (ChromaDB)" : 25
+    "Real-Time WebSockets & Async (Celery/Redis)" : 20
+    "DevOps & Infrastructure (Docker/Azure)" : 15
+```
+
+### 2. System Delivery Timeline (Gantt Chart)
+
+```mermaid
+gantt
+    title Production System Delivery Timeline (2024 - 2026)
+    dateFormat YYYY-MM
+    axisFormat %b %Y
+
+    section Enterprise SaaS
+    NeevPath School ERP (RAG & WebSockets) : active, 2024-04, 2025-03
+    VerifiHireAI (LLM ATS & Interview Bot) : 2025-01, 2025-10
+    SoulSupport (Real-time RBAC & Chat)    : 2025-08, 2026-06
+
+    section Architecture & DevOps
+    50+ REST APIs Delivery                 : 2024-04, 2026-06
+    Docker & Azure VM Deployments           : 2024-06, 2026-06
+```
+
+### 3. Production Competency & Capability Distribution
+
+```
+📊 Production Capability Matrix
+
+Python / Backend APIs  [████████████████████] 98% (50+ REST APIs)
+RAG & ChromaDB         [██████████████████  ] 92% (Context Vector Search)
+Django / DRF           [██████████████████  ] 92% (Enterprise SaaS)
+FastAPI & Pydantic     [████████████████    ] 88% (High Throughput)
+WebSockets & Redis     [████████████████    ] 86% (Real-Time Channels)
+React.js & Tailwind    [██████████████      ] 82% (Full-Stack UI)
+Docker & Azure VM      [██████████████      ] 82% (Container DevOps)
+```
+
+---
+
+## 🐍 Contribution Grid Snake Game
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sridhar8910/sridhar8910/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Grid Snake Game" width="100%" />
+</p>
 
 ---
 
