@@ -1,12 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:00f2fe,50:7c3aed,100:db00ff&text=Sridhar%20Reddy%20Guda&fontColor=ffffff&fontSize=40&fontAlignY=36&desc=AI%20Developer%20%7C%20Python%20%26%20Django%20REST%20Framework%20%7C%20Flutter%20%26%20React&descAlignY=58&descSize=15" alt="Sridhar Reddy Guda Waving Header Banner" />
-</p>
-
-<h1 align="center">⚡ Sridhar Reddy Guda</h1>
-
-<p align="center">
-  <b>Software Engineer with 2+ Years of Commercial Experience</b><br />
-  Specializing in <b>AI / RAG Systems (ChromaDB)</b>, <b>50+ REST APIs (Python & Django REST Framework)</b>, <b>Flutter & Dart Mobile Frontends</b>, <b>React & Tailwind Web UI</b>, and <b>Cloud DevOps (Docker & Azure VM)</b>.
+  <img src="./header.svg" alt="Sridhar Reddy Guda Animated Header Banner" width="100%" />
 </p>
 
 <p align="center">
@@ -178,10 +171,5 @@ Docker & Azure VM          [██████████████      ] 82
 ---
 
 <p align="center">
-  <b>🌐 Interactive Web Portfolio: <a href="https://sridhar8910.github.io/">sridhar8910.github.io</a></b><br />
-  Engineered with ❤️ by Sridhar Reddy Guda using Python, Django REST Framework (DRF), RAG, Flutter & React.
-</p>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:00f2fe,50:7c3aed,100:db00ff" alt="Sridhar Reddy Guda Waving Footer Banner" />
+  <img src="./footer.svg" alt="Sridhar Reddy Guda Animated Footer Banner" width="100%" />
 </p>
