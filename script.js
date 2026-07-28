@@ -111,155 +111,218 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typed) setTimeout(typeChar, 600);
 
   // ==========================================================================
-  // 4. ARCHITECTURE VISUALIZER INSPECTOR DATA
+  // 4. MULTI-PLATFORM ARCHITECTURE SWITCHER & INSPECTOR DATA
   // ==========================================================================
-  const archData = {
-    client: {
-      tag: "Frontend Tier",
-      title: "React.js & Flutter Real-Time Integration",
-      desc: "Responsive full-stack user interfaces engineered with React.js, TailwindCSS, and Flutter. Configured with WebSocket event listeners (Django Channels) for real-time chat, live tracking, and recruiter dashboards.",
-      filename: "web_socket_client.js",
-      code: `// Real-time WebSocket listener connecting React frontend to Django Channels
-const ws = new WebSocket('wss://api.neevpath.com/ws/live-tracking/');
-
-ws.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  updateDashboardState({
-    studentId: data.student_id,
-    liveStatus: data.status,
-    timestamp: new Date(data.timestamp)
-  });
-};`,
-      metrics: [
-        { label: "Response Latency", val: "< 45ms" },
-        { label: "Real-time Layer", val: "WebSockets / WSS" },
-        { label: "UI Framework", val: "React + TailwindCSS" }
-      ]
+  const platformsData = {
+    neevpath: {
+      nodes: [
+        { id: "np_client", badge: "Frontend Tier", icon: "fa-brands fa-react", title: "React & Flutter App", sub: "WebSockets & UI", active: true },
+        { id: "np_gateway", badge: "API Gateway", icon: "fa-solid fa-network-wired", title: "Django REST / FastAPI", sub: "Pydantic Schemas" },
+        { id: "np_async", badge: "Async Engine", icon: "fa-solid fa-clock-rotate-left", title: "Celery & Redis", sub: "Background Queues" },
+        { id: "np_rag", badge: "Vector AI", icon: "fa-solid fa-microchip", title: "ChromaDB RAG + LLM", sub: "Doubt Clarification" },
+        { id: "np_cloud", badge: "DevOps & Cloud", icon: "fa-solid fa-cloud-arrow-up", title: "Docker on Azure VM", sub: "PostgreSQL & CI/CD" }
+      ],
+      details: {
+        np_client: {
+          tag: "NeevPath Frontend", title: "React.js & Flutter School ERP Portals",
+          desc: "Multi-role student, parent, teacher, and admin web portals built with React.js and TailwindCSS. Communicates via WSS WebSockets for real-time attendance alerts and chat.",
+          filename: "ws_neevpath_client.js",
+          code: `const ws = new WebSocket('wss://api.neevpath.com/ws/live-school/');\nws.onmessage = (event) => {\n  const data = JSON.parse(event.data);\n  updateStudentAttendanceUI(data.student_id, data.status);\n};`,
+          metrics: [{ label: "Portals", val: "5 User Roles" }, { label: "Protocol", val: "WSS WebSockets" }, { label: "Frontend", val: "React + Tailwind" }]
+        },
+        np_gateway: {
+          tag: "NeevPath API Gateway", title: "Django REST & django-ninja-extra API Engine",
+          desc: "API gateway exposing student assessments, fees, exams, and AI doubt resolution endpoints. Enforces JWT authentication and RBAC.",
+          filename: "neevpath_api.py",
+          code: `@api_controller('/v1/school', tags=['School ERP'])\nclass SchoolController:\n    @http_post('/doubts/ask', response={200: dict})\n    def ask_ai(self, request, payload: DoubtSchema):\n        task = run_rag_pipeline.delay(payload.query_text)\n        return 200, {"task_id": task.id}`,
+          metrics: [{ label: "Endpoints", val: "30+ APIs" }, { label: "Security", val: "JWT & RBAC" }, { label: "Validation", val: "Pydantic" }]
+        },
+        np_async: {
+          tag: "Async Queue", title: "Celery Worker & Redis Task Scheduling",
+          desc: "Executes non-blocking tasks: fee due alerts, automated attendance processing, and background vector embedding generation.",
+          filename: "tasks.py",
+          code: `@shared_task\ndef run_rag_pipeline(query_text):\n    rag = RAGEngine(collection="school_docs")\n    return rag.query(query_text)`,
+          metrics: [{ label: "Queue", val: "Celery Workers" }, { label: "Broker", val: "Redis DB 0" }, { label: "Retries", val: "Automatic (x3)" }]
+        },
+        np_rag: {
+          tag: "Vector AI Engine", title: "ChromaDB RAG Pipeline for Doubt Resolution",
+          desc: "Retrieval-Augmented Generation using ChromaDB vector database. Matches student questions against textbook embeddings for grounded AI explanations.",
+          filename: "rag_engine.py",
+          code: `import chromadb\nchroma = chromadb.PersistentClient(path="./chroma_school")\ncoll = chroma.get_collection("curriculum")\nres = coll.query(query_embeddings=[vec], n_results=3)`,
+          metrics: [{ label: "Vector Store", val: "ChromaDB Persistent" }, { label: "Embeddings", val: "SentenceTransformer" }, { label: "Grounding", val: "98% Accuracy" }]
+        },
+        np_cloud: {
+          tag: "Cloud Infrastructure", title: "Docker Containerization on Azure Virtual Machine",
+          desc: "Dockerized production stack running Gunicorn, Celery, Redis, and PostgreSQL on Azure Virtual Machines with GitHub Actions CI/CD.",
+          filename: "docker-compose.yml",
+          code: `version: '3.8'\nservices:\n  web:\n    image: neevpath/backend:latest\n    environment: [AZURE_VM=true, POSTGRES_DB=neevpath]`,
+          metrics: [{ label: "Host", val: "Azure VM" }, { label: "Containers", val: "Docker Compose" }, { label: "Database", val: "PostgreSQL 15" }]
+        }
+      }
     },
-    gateway: {
-      tag: "API Gateway",
-      title: "Django REST Framework & FastAPI Architecture",
-      desc: "High-throughput API Gateway servicing 50+ REST endpoints. Uses django-ninja-extra with Pydantic validation schemas, JWT & OAuth2 token validation, and granular Role-Based Access Control (RBAC).",
-      filename: "api_views.py",
-      code: `from ninja_extra import NinjaExtraAPI, api_controller, http_post
-from pydantic import BaseModel
-
-class DoubtQuerySchema(BaseModel):
-    student_id: int
-    subject: str
-    query_text: str
-
-@api_controller('/v1/ai', tags=['AI Doubts'])
-class AIDoubtController:
-    @http_post('/clarify', response={200: dict})
-    def clarify_doubt(self, request, payload: DoubtQuerySchema):
-        # Trigger RAG pipeline asynchronously
-        task = process_rag_query.delay(payload.model_dump())
-        return 200, {"status": "queued", "task_id": task.id}`,
-      metrics: [
-        { label: "APIs Delivered", val: "50+ Endpoints" },
-        { label: "Validation", val: "Pydantic Schemas" },
-        { label: "Authentication", val: "JWT & OAuth2" }
-      ]
+    verifihire: {
+      nodes: [
+        { id: "vh_recruiter", badge: "Recruiter UI", icon: "fa-solid fa-desktop", title: "React Recruiter Suite", sub: "Tailwind & Dashboards", active: true },
+        { id: "vh_parser", badge: "NLP Engine", icon: "fa-solid fa-file-invoice", title: "Async Resume Parser", sub: "LLM PDF Extraction" },
+        { id: "vh_ats", badge: "Scoring Engine", icon: "fa-solid fa-calculator", title: "ATS Match & Rank", sub: "Fit Vector Scoring" },
+        { id: "vh_bot", badge: "AI Interviewer", icon: "fa-solid fa-robot", title: "LLM Live Interview", sub: "Dynamic Follow-ups" },
+        { id: "vh_deploy", badge: "Cloud Microservices", icon: "fa-brands fa-docker", title: "Docker & Azure VM", sub: "Scalable Containers" }
+      ],
+      details: {
+        vh_recruiter: {
+          tag: "VerifiHire UI", title: "React & TailwindCSS Recruiter Dashboard",
+          desc: "Recruiter interfaces for candidate pipeline tracking, bulk resume uploads, and live interview monitoring via WebSockets.",
+          filename: "recruiter_dashboard.jsx",
+          code: `export const Dashboard = () => {\n  const { candidateStream } = useWebSocket('wss://api.verifihire.ai/ws/interviews/');\n  return <CandidateGrid data={candidateStream} />;\n};`,
+          metrics: [{ label: "Framework", val: "React.js" }, { label: "Styling", val: "TailwindCSS" }, { label: "Updates", val: "Real-time Stream" }]
+        },
+        vh_parser: {
+          tag: "NLP Parser", title: "LLM-Powered Resume Information Extraction",
+          desc: "Async Celery pipeline extracting technical skills, work history, education, and credentials from high-volume PDF resume uploads.",
+          filename: "resume_parser.py",
+          code: `def extract_resume_metadata(pdf_bytes):\n    text = extract_pdf_text(pdf_bytes)\n    prompt = f"Extract skills, experience from:\\n{text}"\n    return llm.generate_json(prompt)`,
+          metrics: [{ label: "Async Queue", val: "Celery Uploads" }, { label: "Format", val: "PDF / DOCX" }, { label: "Parsing Latency", val: "< 1.2s" }]
+        },
+        vh_ats: {
+          tag: "ATS Engine", title: "Vector ATS Fit Scoring & Ranking",
+          desc: "Computes similarity score between candidate profiles and job requirements using ChromaDB vector embeddings.",
+          filename: "ats_scorer.py",
+          code: `def score_candidate(candidate_vec, job_spec_vec):\n    similarity = cosine_similarity(candidate_vec, job_spec_vec)\n    return round(similarity * 100, 2)`,
+          metrics: [{ label: "Scoring", val: "Cosine Similarity" }, { label: "Ranking", val: "Automated Top N" }, { label: "Match Speed", val: "Instant" }]
+        },
+        vh_bot: {
+          tag: "AI Interviewer", title: "LLM Automated Interview Conversations",
+          desc: "Interactive conversational AI agent conducting technical interviews, asking dynamic follow-up questions, and generating summaries.",
+          filename: "interview_bot.py",
+          code: `class InterviewAgent:\n    def next_question(self, candidate_answer):\n        return llm.chat(system_prompt=INTERVIEWER_RULES, user_msg=candidate_answer)`,
+          metrics: [{ label: "Agent", val: "LLM Conversational" }, { label: "Follow-ups", val: "Contextual" }, { label: "Output", val: "Summary Report" }]
+        },
+        vh_deploy: {
+          tag: "Deploy", title: "Docker Microservices on Azure Infrastructure",
+          desc: "Containerized deployment of recruitment backend, Celery workers, and Redis channels on Azure VM.",
+          filename: "docker_deploy.sh",
+          code: `docker compose -f docker-compose.prod.yml up -d --build`,
+          metrics: [{ label: "Orchestration", val: "Docker Compose" }, { label: "Cloud", val: "Azure VMs" }, { label: "CI/CD", val: "GitHub Actions" }]
+        }
+      }
     },
-    async: {
-      tag: "Async Tasks",
-      title: "Celery Workers & Redis Channel Layer",
-      desc: "Asynchronous task queue powering non-blocking API operations: automated resume screening, email notifications, ATS scoring batch runs, and real-time WebSocket event distribution.",
-      filename: "tasks.py",
-      code: `from celery import shared_task
-from .rag_engine import QueryRAGEngine
-
-@shared_task(bind=True, max_retries=3)
-def process_rag_query(self, query_data):
-    try:
-        rag = QueryRAGEngine(collection_name="school_curriculum")
-        result = rag.retrieve_and_generate(query_data['query_text'])
-        return {"status": "success", "response": result['llm_output']}
-    except Exception as exc:
-        raise self.retry(exc=exc, countdown=5)`,
-      metrics: [
-        { label: "Task Queue", val: "Celery Distributed" },
-        { label: "Broker / Cache", val: "Redis Enterprise" },
-        { label: "Throughput", val: "10,000+ jobs/day" }
-      ]
-    },
-    rag: {
-      tag: "Vector AI Engine",
-      title: "ChromaDB Vector Search & RAG Pipeline",
-      desc: "Retrieval-Augmented Generation pipeline using ChromaDB vector database. Converts text into vector embeddings, performs cosine similarity searches, and constructs augmented LLM context prompts.",
-      filename: "rag_engine.py",
-      code: `import chromadb
-from sentence_transformers import SentenceTransformer
-
-class RAGPipeline:
-    def __init__(self, collection_name="neevpath_docs"):
-        self.chroma_client = chromadb.PersistentClient(path="./chroma_db")
-        self.collection = self.chroma_client.get_or_create_collection(collection_name)
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
-
-    def query(self, user_prompt, n_results=3):
-        query_vec = self.model.encode(user_prompt).tolist()
-        results = self.collection.query(query_embeddings=[query_vec], n_results=n_results)
-        context = "\\n".join(results['documents'][0])
-        return f"Context:\\n{context}\\n\\nQuestion: {user_prompt}"`,
-      metrics: [
-        { label: "Vector DB", val: "ChromaDB Engine" },
-        { label: "Embeddings", val: "SentenceTransformers" },
-        { label: "Accuracy", val: "High Domain Grounding" }
-      ]
-    },
-    cloud: {
-      tag: "DevOps & Cloud",
-      title: "Docker Containerization & Azure VM Deployment",
-      desc: "Multi-container Docker Compose deployment hosting Django WSGI/ASGI servers, Celery workers, Redis, and PostgreSQL on Azure Virtual Machines with GitHub Actions CI/CD pipelines.",
-      filename: "docker-compose.yml",
-      code: `version: '3.8'
-services:
-  web:
-    build: .
-    command: gunicorn neevpath.wsgi:application --bind 0.0.0.0:8000
-    environment:
-      - DATABASE_URL=postgres://user:pass@db:5432/neevpath
-      - REDIS_URL=redis://redis:6379/0
-    depends_on:
-      - db
-      - redis
-  celery:
-    build: .
-    command: celery -A neevpath worker -l info`,
-      metrics: [
-        { label: "Cloud Provider", val: "Microsoft Azure VM" },
-        { label: "Containers", val: "Docker & Compose" },
-        { label: "Database", val: "PostgreSQL 15" }
-      ]
+    soulsupport: {
+      nodes: [
+        { id: "ss_client", badge: "Private App", icon: "fa-solid fa-mobile-screen", title: "Flutter & Mobile Client", sub: "Encrypted Messaging", active: true },
+        { id: "ss_wss", badge: "Real-time Gateway", icon: "fa-solid fa-satellite-dish", title: "Django Channels WSS", sub: "Sub-40ms Delivery" },
+        { id: "ss_auth", badge: "Security", icon: "fa-solid fa-key", title: "JWT & RBAC Controller", sub: "Multi-Role Guard" },
+        { id: "ss_db", badge: "Database", icon: "fa-solid fa-leaf", title: "PostgreSQL Database", sub: "Query Tuning & Indexing" },
+        { id: "ss_moderation", badge: "Support Admin", icon: "fa-solid fa-user-shield", title: "Moderation & Analytics", sub: "Admin Diagnostics" }
+      ],
+      details: {
+        ss_client: {
+          tag: "SoulSupport Client", title: "Secure Flutter Cross-Platform Mobile Client",
+          desc: "Flutter mobile application communicating with Django REST & Channels for private, encrypted support sessions.",
+          filename: "support_session.dart",
+          code: `final channel = WebSocketChannel.connect(Uri.parse('wss://api.soulsupport.org/ws/chat/'));\nchannel.stream.listen((message) => handleIncomingChat(message));`,
+          metrics: [{ label: "Client", val: "Flutter Mobile" }, { label: "Security", val: "Encrypted Channels" }, { label: "Latency", val: "< 40ms" }]
+        },
+        ss_wss: {
+          tag: "WSS Engine", title: "Django Channels & Redis Real-Time Socket Layer",
+          desc: "Asynchronous WebSocket server handling user-to-member message routing, presence detection, and live notification pushes.",
+          filename: "consumers.py",
+          code: `class SupportChatConsumer(AsyncWebsocketConsumer):\n    async def connect(self):\n        self.user = self.scope['user']\n        if self.user.is_authenticated:\n            await self.accept()`,
+          metrics: [{ label: "Gateway", val: "Django Channels" }, { label: "Channel Bus", val: "Redis Memory" }, { label: "Protocol", val: "WSS Sockets" }]
+        },
+        ss_auth: {
+          tag: "Security Guard", title: "JWT Token Validation & Multi-Tenant RBAC",
+          desc: "Enforces strict identity boundaries between support seekers, certified members, and platform administrators.",
+          filename: "permissions.py",
+          code: `class IsSupportMember(BasePermission):\n    def has_permission(self, request, view):\n        return request.user.role == 'SUPPORT_MEMBER' and request.user.is_verified`,
+          metrics: [{ label: "Auth Token", val: "JWT Access + Refresh" }, { label: "Control", val: "Granular RBAC" }, { label: "Isolation", val: "Strict Scoping" }]
+        },
+        ss_db: {
+          tag: "Optimized DB", title: "PostgreSQL Database Schema & Query Optimization",
+          desc: "Indexed PostgreSQL tables holding user records, conversation histories, moderation reports, and analytical metrics.",
+          filename: "models.py",
+          code: `class Conversation(models.Model):\n    seeker = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seeker_chats')\n    member = models.ForeignKey(User, on_delete=models.CASCADE, related_name='member_chats')\n    created_at = models.DateTimeField(auto_now_add=True, db_index=True)`,
+          metrics: [{ label: "RDBMS", val: "PostgreSQL 15" }, { label: "Optimization", val: "Indexed Foreign Keys" }, { label: "Queries", val: "Zero N+1 Calls" }]
+        },
+        ss_moderation: {
+          tag: "Admin Suite", title: "Moderation Dashboards & Diagnostic Analytics",
+          desc: "Admin diagnostic APIs for analytical reporting, flag resolution, and emergency intervention triggers.",
+          filename: "admin_views.py",
+          code: `@api_view(['GET'])\n@permission_classes([IsAdminUser])\ndef moderation_analytics(request):\n    stats = FlaggedSession.objects.filter(resolved=False).aggregate(Count('id'))\n    return Response(stats)`,
+          metrics: [{ label: "Suite", val: "Admin Moderation" }, { label: "Analytics", val: "Real-time Metrics" }, { label: "Safety", val: "Emergency Triggers" }]
+        }
+      }
     }
   };
 
-  const archNodes = document.querySelectorAll('.arch-node');
-  archNodes.forEach(node => {
-    node.addEventListener('click', () => {
-      archNodes.forEach(n => n.classList.remove('active-node'));
-      node.classList.add('active-node');
-      const key = node.dataset.node;
-      const d = archData[key];
-      if (d) {
-        document.getElementById('inspect-tag').textContent = d.tag;
-        document.getElementById('inspect-title').textContent = d.title;
-        document.getElementById('inspect-desc').textContent = d.desc;
-        document.getElementById('inspect-filename').textContent = d.filename;
-        document.getElementById('inspect-code').textContent = d.code;
+  let currentPlatform = 'neevpath';
 
-        const metricsEl = document.getElementById('inspect-metrics');
-        metricsEl.innerHTML = d.metrics.map(m => `
-          <div class="metric-box">
-            <span>${m.label}</span>
-            <strong>${m.val}</strong>
-          </div>
-        `).join('');
-      }
+  function renderArchitectureNodes(platformKey) {
+    currentPlatform = platformKey;
+    const pData = platformsData[platformKey];
+    if (!pData) return;
+
+    const container = document.getElementById('arch-nodes-container');
+    if (!container) return;
+
+    container.innerHTML = pData.nodes.map((n, idx) => `
+      <div class="arch-node ${n.active ? 'active-node' : ''}" data-node="${n.id}">
+        <div class="node-badge">${n.badge}</div>
+        <div class="node-icon"><i class="${n.icon}"></i></div>
+        <h4>${n.title}</h4>
+        <p>${n.sub}</p>
+      </div>
+      ${idx < pData.nodes.length - 1 ? '<div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>' : ''}
+    `).join('');
+
+    // Rebind click events
+    container.querySelectorAll('.arch-node').forEach(node => {
+      node.addEventListener('click', () => {
+        container.querySelectorAll('.arch-node').forEach(x => x.classList.remove('active-node'));
+        node.classList.add('active-node');
+        const nodeId = node.dataset.node;
+        updateInspectorDetails(platformKey, nodeId);
+      });
+    });
+
+    // Default inspect first node
+    const firstNodeId = pData.nodes[0].id;
+    updateInspectorDetails(platformKey, firstNodeId);
+  }
+
+  function updateInspectorDetails(platformKey, nodeId) {
+    const details = platformsData[platformKey]?.details[nodeId];
+    if (!details) return;
+
+    document.getElementById('inspect-tag').textContent = details.tag;
+    document.getElementById('inspect-title').textContent = details.title;
+    document.getElementById('inspect-desc').textContent = details.desc;
+    document.getElementById('inspect-filename').textContent = details.filename;
+    document.getElementById('inspect-code').textContent = details.code;
+
+    const metricsEl = document.getElementById('inspect-metrics');
+    if (metricsEl) {
+      metricsEl.innerHTML = details.metrics.map(m => `
+        <div class="metric-box">
+          <span>${m.label}</span>
+          <strong>${m.val}</strong>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Bind Platform Switcher Tabs
+  const archTabBtns = document.querySelectorAll('.arch-tab-btn');
+  archTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      archTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const platformKey = btn.dataset.arch;
+      renderArchitectureNodes(platformKey);
     });
   });
+
+  // Initial render
+  renderArchitectureNodes('neevpath');
 
   // ==========================================================================
   // 5. RAG SIMULATOR LOGIC
@@ -308,7 +371,7 @@ services:
       // Reset steps
       [1, 2, 3, 4].forEach(i => {
         const s = document.getElementById(`step-${i}`);
-        s.className = 'sim-step';
+        if (s) s.className = 'sim-step';
       });
 
       consoleOutput.innerHTML = '<div style="color:var(--cyan)"><i class="fa-solid fa-gear fa-spin"></i> Initializing RAG Pipeline Execution...</div>';
@@ -321,28 +384,35 @@ services:
 
       // Step 1
       setTimeout(() => {
-        document.getElementById('step-1').className = 'sim-step step-active';
+        const s1 = document.getElementById('step-1');
+        if (s1) s1.className = 'sim-step step-active';
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:#a5b4fc">[STEP 1] ${data.step1}</div>`;
       }, 400);
 
       // Step 2
       setTimeout(() => {
-        document.getElementById('step-1').className = 'sim-step step-complete';
-        document.getElementById('step-2').className = 'sim-step step-active';
+        const s1 = document.getElementById('step-1');
+        const s2 = document.getElementById('step-2');
+        if (s1) s1.className = 'sim-step step-complete';
+        if (s2) s2.className = 'sim-step step-active';
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:var(--cyan)">[STEP 2] ${data.step2}</div>`;
       }, 1000);
 
       // Step 3
       setTimeout(() => {
-        document.getElementById('step-2').className = 'sim-step step-complete';
-        document.getElementById('step-3').className = 'sim-step step-active';
+        const s2 = document.getElementById('step-2');
+        const s3 = document.getElementById('step-3');
+        if (s2) s2.className = 'sim-step step-complete';
+        if (s3) s3.className = 'sim-step step-active';
         consoleOutput.innerHTML += `<div style="margin-top:.5rem;color:var(--magenta)">[STEP 3] ${data.step3}</div>`;
       }, 1700);
 
       // Step 4
       setTimeout(() => {
-        document.getElementById('step-3').className = 'sim-step step-complete';
-        document.getElementById('step-4').className = 'sim-step step-complete';
+        const s3 = document.getElementById('step-3');
+        const s4 = document.getElementById('step-4');
+        if (s3) s3.className = 'sim-step step-complete';
+        if (s4) s4.className = 'sim-step step-complete';
         consoleOutput.innerHTML += `<div style="margin-top:.8rem;padding-top:.8rem;border-top:1px dashed var(--border);color:var(--emerald);font-weight:600">[STEP 4 - FINAL RESPONSE]<br>${data.step4}</div>`;
         clearInterval(timerInt);
         runRagBtn.disabled = false;

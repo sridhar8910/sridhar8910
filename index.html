@@ -31,7 +31,7 @@
       <a href="#" class="logo"><i class="fa-solid fa-brain" style="color:var(--cyan)"></i> SRIDHAR.AI</a>
       <nav class="nav-menu" id="nav-menu">
         <a href="#about" class="nav-link active">About</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#architecture" class="nav-link">Architectures</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
@@ -72,7 +72,7 @@
           </p>
           <div class="hero-buttons">
             <a href="#architecture" class="btn btn-primary">
-              <i class="fa-solid fa-diagram-project"></i> Explore System Architecture
+              <i class="fa-solid fa-diagram-project"></i> Explore System Architectures
             </a>
             <a href="#rag-demo" class="btn btn-outline">
               <i class="fa-solid fa-terminal"></i> Try RAG Simulator
@@ -172,18 +172,31 @@
     </div>
   </section>
 
-  <!-- ===== INTERACTIVE ARCHITECTURE VISUALIZER ===== -->
+  <!-- ===== MULTI-SYSTEM ARCHITECTURE VISUALIZER ===== -->
   <section class="section section-alt" id="architecture">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Production System Architecture</h2>
-        <p>Click on any architectural node below to inspect real-time data flows, backend logic, and production specs.</p>
+        <h2>Enterprise System Architectures</h2>
+        <p>Select a platform below to switch production data flows, component relationships, and inspect real backend code & metrics.</p>
+      </div>
+
+      <!-- Architecture Platform Switcher Tabs -->
+      <div class="arch-tabs reveal">
+        <button class="arch-tab-btn active" data-arch="neevpath">
+          <i class="fa-solid fa-graduation-cap"></i> NeevPath (RAG + ChromaDB Architecture)
+        </button>
+        <button class="arch-tab-btn" data-arch="verifihire">
+          <i class="fa-solid fa-user-check"></i> VerifiHireAI (LLM Recruitment Pipeline)
+        </button>
+        <button class="arch-tab-btn" data-arch="soulsupport">
+          <i class="fa-solid fa-shield-halved"></i> SoulSupport (Real-Time WSS & Security)
+        </button>
       </div>
       
       <!-- Interactive Diagram Container -->
       <div class="arch-visualizer-container reveal">
-        <div class="arch-flow-diagram">
-          <!-- Tier 1: Client -->
+        <div class="arch-flow-diagram" id="arch-nodes-container">
+          <!-- Default: NeevPath Nodes -->
           <div class="arch-node active-node" data-node="client">
             <div class="node-badge">Frontend Tier</div>
             <div class="node-icon"><i class="fa-brands fa-react"></i></div>
@@ -192,7 +205,6 @@
           </div>
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
-          <!-- Tier 2: API Gateway -->
           <div class="arch-node" data-node="gateway">
             <div class="node-badge">API Gateway</div>
             <div class="node-icon"><i class="fa-solid fa-network-wired"></i></div>
@@ -201,7 +213,6 @@
           </div>
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
-          <!-- Tier 3: Async Task Engine -->
           <div class="arch-node" data-node="async">
             <div class="node-badge">Async Tasks</div>
             <div class="node-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
@@ -210,7 +221,6 @@
           </div>
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
-          <!-- Tier 4: RAG & AI Vector Engine -->
           <div class="arch-node" data-node="rag">
             <div class="node-badge">Vector AI Engine</div>
             <div class="node-icon"><i class="fa-solid fa-microchip"></i></div>
@@ -219,7 +229,6 @@
           </div>
           <div class="arch-connector"><i class="fa-solid fa-chevron-right"></i></div>
 
-          <!-- Tier 5: Cloud Infrastructure -->
           <div class="arch-node" data-node="cloud">
             <div class="node-badge">DevOps & Cloud</div>
             <div class="node-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
