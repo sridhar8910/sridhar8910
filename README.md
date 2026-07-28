@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://sridhar8910.github.io/">
-    <img src="https://img.shields.io/badge/🌐_Portfolio-sridhar8910.github.io-00f2fe?style=for-the-badge&logoColor=white" alt="Live Portfolio Website" />
+  <a href="https://sridhar8910.github.io/sridhar8910/#">
+    <img src="https://img.shields.io/badge/🌐_Interactive_Portfolio-sridhar8910.github.io/sridhar8910/%23-00f2fe?style=for-the-badge&logoColor=white" alt="Live Interactive Portfolio" />
   </a>
   <a href="mailto:gudasridharreddy2002@gmail.com">
     <img src="https://img.shields.io/badge/Email-gudasridharreddy2002%40gmail.com-ef4444?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
@@ -18,18 +18,22 @@
   <img src="https://komarev.com/ghpvc/?username=sridhar8910&style=for-the-badge&color=7c3aed" alt="Profile views" />
 </p>
 
+<p align="center">
+  ⚡ <b>Live Interactive Portfolio: <a href="https://sridhar8910.github.io/sridhar8910/#">https://sridhar8910.github.io/sridhar8910/#</a></b> ⚡
+</p>
+
 ---
 
 ## 🎯 Recruiter Quick-Navigation Matrix (Select Your Hiring Stream)
 
 Choose your relevant domain below to view custom engineering highlights, metrics, and production proof:
 
-| Hiring Stream / Role | Core Technologies | Key Business Impact | Jump To Section |
+| Hiring Stream / Role | Core Technologies | Key Business Impact | Live Web Link |
 | :--- | :--- | :--- | :---: |
-| 🤖 **AI / GenAI / RAG Engineer** | RAG, ChromaDB Vector DB, Prompt Engineering, ATS Engines, LLM Interviews | Built RAG pipeline with 98% accuracy & context grounding | [👉 AI Stream](#-1-ai--genai--rag-engineering-stream) |
-| 🐍 **Python / Backend Developer** | Python 3.x, Django, Django REST Framework (DRF), FastAPI, PostgreSQL | Delivered **50+ REST APIs** with `< 45ms` response time | [👉 Backend Stream](#-2-python--django--fastapi-backend-stream) |
-| 📱 **Mobile & Web Frontends** | Flutter & Dart (NeevPath & SoulSupport), React & Tailwind (VerifiHireAI) | Cross-platform mobile apps & responsive recruiter dashboards | [👉 Frontend Stream](#-3-mobile--web-frontend-stream) |
-| ☁️ **DevOps / Cloud Engineer** | Docker Containers, Azure VMs, Linux, Git/GitHub Actions, pytest | Zero-downtime releases & containerized microservices | [👉 DevOps Stream](#-4-devops--cloud-infrastructure-stream) |
+| 🤖 **AI / GenAI / RAG Engineer** | RAG, ChromaDB Vector DB, Prompt Engineering, ATS Engines, LLM Interviews | Built RAG pipeline with 98% accuracy & context grounding | [👉 Open Live RAG Demo](https://sridhar8910.github.io/sridhar8910/#rag-demo) |
+| 🐍 **Python / Backend Developer** | Python 3.x, Django, Django REST Framework (DRF), FastAPI, PostgreSQL | Delivered **50+ REST APIs** with `< 45ms` response time | [👉 Open API Sandbox](https://sridhar8910.github.io/sridhar8910/#api-sandbox) |
+| 📱 **Mobile & Web Frontends** | Flutter & Dart (NeevPath & SoulSupport), React & Tailwind (VerifiHireAI) | Cross-platform mobile apps & responsive recruiter dashboards | [👉 Open Projects View](https://sridhar8910.github.io/sridhar8910/#projects) |
+| ☁️ **DevOps / Cloud Engineer** | Docker Containers, Azure VMs, Linux, Git/GitHub Actions, pytest | Zero-downtime releases & containerized microservices | [👉 Open Architecture Visualizer](https://sridhar8910.github.io/sridhar8910/#architecture) |
 
 ---
 
@@ -117,11 +121,11 @@ flowchart LR
 
 ## 🌟 Featured Enterprise Projects
 
-| Project & Official Tagline | Domain | Frontend | Backend & Storage | Impact & Highlights |
+| Project & Official Tagline | Domain | Frontend | Backend & Storage | Live Link & Highlights |
 | :--- | :--- | :--- | :--- | :--- |
-| **NeevPath**<br />*"Where Education Evolves Digitally"* | EdTech AI | `Flutter & Dart` | `Python` `Django REST (DRF)` `RAG` `ChromaDB` `Docker` `Azure` | Built Flutter mobile app & ChromaDB RAG pipeline for AI doubt clarification. |
-| **VerifiHireAI**<br />*"Trust in Every Hire"* | HRTech AI | `React.js & Tailwind` | `Python` `Django REST (DRF)` `LLMs` `Celery` `Docker` `Azure` | Built React web dashboard & LLM automated interview bot. |
-| **SoulSupport**<br />*"You're Not Alone"* | Mental Health | `Flutter & Dart` | `Python` `Django REST (DRF)` `PostgreSQL` `JWT` `RBAC` `Docker` | Built Flutter mobile app & secure encrypted messaging with strict RBAC boundaries. |
+| **NeevPath**<br />*"Where Education Evolves Digitally"* | EdTech AI | `Flutter & Dart` | `Python` `Django REST (DRF)` `RAG` `ChromaDB` `Docker` `Azure` | [👉 Live Demo](https://sridhar8910.github.io/sridhar8910/#projects) — Built Flutter mobile app & ChromaDB RAG pipeline for AI doubt clarification. |
+| **VerifiHireAI**<br />*"Trust in Every Hire"* | HRTech AI | `React.js & Tailwind` | `Python` `Django REST (DRF)` `LLMs` `Celery` `Docker` `Azure` | [👉 Live Demo](https://sridhar8910.github.io/sridhar8910/#projects) — Built React web dashboard & LLM automated interview bot. |
+| **SoulSupport**<br />*"You're Not Alone"* | Mental Health | `Flutter & Dart` | `Python` `Django REST (DRF)` `PostgreSQL` `JWT` `RBAC` `Docker` | [👉 Live Demo](https://sridhar8910.github.io/sridhar8910/#projects) — Built Flutter mobile app & secure encrypted messaging with strict RBAC boundaries. |
 
 ---
 
@@ -169,6 +173,10 @@ Docker & Azure VM          [██████████████      ] 82
 </p>
 
 ---
+
+<p align="center">
+  <b>🌐 Open Live Web App: <a href="https://sridhar8910.github.io/sridhar8910/#">https://sridhar8910.github.io/sridhar8910/#</a></b>
+</p>
 
 <p align="center">
   <img src="./footer.svg" alt="Sridhar Reddy Guda Animated Footer Banner" width="100%" />
